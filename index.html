@@ -90,14 +90,14 @@
       <!-- Header Actions -->
       <div class="flex items-center gap-2 sm:gap-2.5">
         
-        <!-- SECURE ADMIN BUTTON (HIDDEN BY DEFAULT - ONLY APPEARS IF marufclaud@gmail.com LOGGED IN) -->
+        <!-- SECURE ADMIN BUTTON (HIDDEN BY DEFAULT - ONLY VISIBLE IF marufclaud@gmail.com IS LOGGED IN) -->
         <button onclick="openAdminPanel()" id="adminHeaderBtn" class="hidden flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-xs font-bold px-3 sm:px-3.5 py-2 rounded-full shadow-sm transition">
           <i class="fa-solid fa-crown text-xs"></i>
           <span>অ্যাডমিন প্যানেল</span>
         </button>
 
         <!-- Size Chart Trigger -->
-        <button onclick="openSizeModal()" class="hidden sm:flex items-center gap-1.5 bg-baby-pastelYellow hover:bg-yellow-200 text-amber-800 text-xs font-bold px-3.5 py-2 rounded-full border border-amber-200 transition">
+        <button onclick="openSizeModal()" class="hidden sm:flex items-center gap-1.5 bg-baby-pastelYellow hover:bg-yellow-200 text-amber-800 text-xs font-bold px-3 py-2 rounded-full border border-amber-200 transition">
           <i class="fa-solid fa-ruler-combined text-amber-600"></i>
           <span>সাইজ চার্ট</span>
         </button>
@@ -152,7 +152,7 @@
         <div class="md:col-span-7 text-center md:text-left space-y-3.5">
           <div class="inline-flex items-center gap-2 bg-white/90 border border-pink-200 px-3 py-1 rounded-full shadow-sm text-xs font-bold text-baby-coral">
             <span>✨</span>
-            <span>শিশুর কোমল ত্বকে পূর্ণ স্বস্তি</span>
+            <span id="heroPromoTag">শিশুর কোমল ত্বকে পূর্ণ স্বস্তি</span>
           </div>
 
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 leading-tight">
@@ -176,10 +176,11 @@
           </div>
         </div>
 
+        <!-- Hero Image (Customizable from Admin Panel) -->
         <div class="md:col-span-5 flex justify-center">
           <div class="relative w-64 h-64 sm:w-72 sm:h-72">
             <div class="w-full h-full rounded-3xl overflow-hidden border-4 border-white shadow-xl bg-white rotate-2 hover:rotate-0 transition duration-300">
-              <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=800&auto=format&fit=crop" 
+              <img id="heroBannerImg" src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=800&auto=format&fit=crop" 
                    alt="Cute Baby Model" class="w-full h-full object-cover">
             </div>
             <div class="absolute -bottom-2 -left-2 bg-white px-3 py-1.5 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-2">
@@ -195,7 +196,7 @@
       </div>
     </section>
 
-    <!-- CIRCULAR CATEGORIES -->
+    <!-- CIRCULAR CATEGORIES (CUSTOMIZABLE FROM ADMIN PANEL) -->
     <section>
       <div class="flex items-center justify-between mb-3 px-1">
         <h2 class="text-base sm:text-lg font-black text-slate-800 flex items-center gap-1.5">
@@ -204,53 +205,8 @@
         <span class="text-[11px] font-bold text-baby-coral">সবগুলো দেখুন →</span>
       </div>
 
-      <div class="flex items-center gap-3 sm:gap-5 overflow-x-auto pb-2 no-scrollbar">
-        
-        <button onclick="filterByCat('all', this)" class="category-bubble active flex flex-col items-center gap-1.5 shrink-0 group">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] story-ring transition group-hover:scale-105">
-            <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-2xl shadow-sm">
-              ✨
-            </div>
-          </div>
-          <span class="text-xs font-bold text-slate-800 group-hover:text-baby-coral">সব কালেকশন</span>
-        </button>
-
-        <button onclick="filterByCat('newborn', this)" class="category-bubble flex flex-col items-center gap-1.5 shrink-0 group">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-pink-100 transition group-hover:scale-105">
-            <div class="w-full h-full rounded-full bg-baby-softPink flex items-center justify-center text-2xl shadow-sm">
-              👶
-            </div>
-          </div>
-          <span class="text-xs font-bold text-slate-600 group-hover:text-baby-coral">Newborn (০-১২M)</span>
-        </button>
-
-        <button onclick="filterByCat('toddler', this)" class="category-bubble flex flex-col items-center gap-1.5 shrink-0 group">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-amber-100 transition group-hover:scale-105">
-            <div class="w-full h-full rounded-full bg-baby-pastelYellow flex items-center justify-center text-2xl shadow-sm">
-              🧸
-            </div>
-          </div>
-          <span class="text-xs font-bold text-slate-600 group-hover:text-baby-coral">Toddler (১-৩ বছর)</span>
-        </button>
-
-        <button onclick="filterByCat('boys', this)" class="category-bubble flex flex-col items-center gap-1.5 shrink-0 group">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-blue-100 transition group-hover:scale-105">
-            <div class="w-full h-full rounded-full bg-baby-pastelBlue flex items-center justify-center text-2xl shadow-sm">
-              👦
-            </div>
-          </div>
-          <span class="text-xs font-bold text-slate-600 group-hover:text-baby-coral">Boys (৩-৮ বছর)</span>
-        </button>
-
-        <button onclick="filterByCat('girls', this)" class="category-bubble flex flex-col items-center gap-1.5 shrink-0 group">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] bg-rose-100 transition group-hover:scale-105">
-            <div class="w-full h-full rounded-full bg-pink-50 flex items-center justify-center text-2xl shadow-sm">
-              👧
-            </div>
-          </div>
-          <span class="text-xs font-bold text-slate-600 group-hover:text-baby-coral">Girls (৩-৮ বছর)</span>
-        </button>
-
+      <div class="flex items-center gap-3 sm:gap-5 overflow-x-auto pb-2 no-scrollbar" id="categoryContainer">
+        <!-- Rendered dynamically from Store Settings -->
       </div>
     </section>
 
@@ -270,7 +226,7 @@
       </div>
 
       <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
-        <!-- Rendered by JS -->
+        <!-- Rendered live from Firebase Firestore -->
       </div>
     </section>
 
@@ -323,22 +279,22 @@
       </div>
 
       <!-- Admin Tabs -->
-      <div class="flex gap-2 border-b border-slate-100 pt-3 pb-2 text-xs font-bold">
+      <div class="flex flex-wrap gap-2 border-b border-slate-100 pt-3 pb-2 text-xs font-bold">
         <button onclick="switchAdminTab('add')" id="tabAddBtn" class="px-3.5 py-1.5 rounded-xl bg-amber-500 text-white transition">
-          ➕ নতুন পোশাক যোগ করুন
+          ➕ নতুন পোশাক যোগ
         </button>
         <button onclick="switchAdminTab('list')" id="tabListBtn" class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
-          📦 পোশাকের তালিকা ও ডিলিট (<span id="adminListCount">0</span>)
+          📦 পোশাক তালিকা (<span id="adminListCount">0</span>)
         </button>
         <button onclick="switchAdminTab('settings')" id="tabSettingsBtn" class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">
-          ⚙️ শপ সেটিংস
+          ⚙️ শপ ও ব্যানার সেটিংস
         </button>
       </div>
 
       <!-- Tab Content Area -->
       <div class="flex-1 overflow-y-auto py-3 space-y-4">
         
-        <!-- Tab 1: Add Product Form -->
+        <!-- Tab 1: Add Product Form (WITH DIRECT DEVICE IMAGE UPLOAD) -->
         <div id="adminTabAdd" class="space-y-3">
           <form onsubmit="handleAdminAddProduct(event)" class="space-y-3 text-xs">
             <div>
@@ -350,7 +306,7 @@
             <div class="grid grid-cols-2 gap-3">
               <div>
                 <label class="block font-bold text-slate-700 mb-1">ক্যাটাগরি *</label>
-                <select id="newProdCategory" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:bg-white focus:outline-none focus:border-amber-500">
+                <select id="newProdCategory" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:bg-white focus:outline-none focus:border-amber-500 font-semibold">
                   <option value="newborn">Newborn (০-১২ মাস)</option>
                   <option value="toddler">Toddler (১-৩ বছর)</option>
                   <option value="boys">Boys (৩-৮ বছর)</option>
@@ -359,7 +315,7 @@
               </div>
               <div>
                 <label class="block font-bold text-slate-700 mb-1">স্পেশাল ব্যাজ *</label>
-                <select id="newProdBadge" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:bg-white focus:outline-none focus:border-amber-500">
+                <select id="newProdBadge" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:bg-white focus:outline-none focus:border-amber-500 font-semibold">
                   <option value="নতুন কালেকশন ✨">নতুন কালেকশন ✨</option>
                   <option value="টপ সেলিং 🔥">টপ সেলিং 🔥</option>
                   <option value="সেরা পছন্দ 👍">সেরা পছন্দ 👍</option>
@@ -382,15 +338,29 @@
               </div>
             </div>
 
-            <div>
-              <label class="block font-bold text-slate-700 mb-1">ছবির ওয়েব লিংক (Image URL) *</label>
-              <input type="url" id="newProdImg" required placeholder="https://images.unsplash.com/... বা যেকোনো ছবির লিংক" 
-                     class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:bg-white focus:outline-none focus:border-amber-500" />
-              <div class="flex gap-2 mt-1.5">
-                <button type="button" onclick="setSampleImg(1)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ১</button>
-                <button type="button" onclick="setSampleImg(2)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ২</button>
-                <button type="button" onclick="setSampleImg(3)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ৩</button>
+            <!-- DIRECT DEVICE IMAGE UPLOAD SECTION -->
+            <div class="bg-amber-50/60 p-3.5 rounded-2xl border border-amber-200/80 space-y-2">
+              <label class="block font-bold text-slate-800">
+                <i class="fa-solid fa-camera text-amber-500 mr-1"></i> পোশাকের ছবি (সরাসরি ডিভাইস থেকে সিলেক্ট করুন) *
+              </label>
+
+              <div class="border-2 border-dashed border-amber-300 hover:border-amber-500 rounded-xl p-3 text-center cursor-pointer bg-white transition relative">
+                <input type="file" id="newProdFile" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onchange="handleProductFileChange(event)" />
+                <div id="productFilePlaceholder" class="space-y-1">
+                  <i class="fa-solid fa-cloud-arrow-up text-2xl text-amber-500"></i>
+                  <p class="font-bold text-slate-700">মোবাইল বা পিসি থেকে ছবি বেছে নিন</p>
+                  <p class="text-[10px] text-slate-400">ক্লিক করে গ্যালারি বা ফাইল থেকে ছবি দিন</p>
+                </div>
+                <img id="productPreviewImg" class="hidden w-28 h-28 object-cover rounded-xl mx-auto border-2 border-amber-500 shadow-md mt-1" />
               </div>
+
+              <!-- Option to paste link if desired -->
+              <div class="text-[11px] text-slate-500 pt-1 flex items-center justify-between">
+                <span>অথবা ইমেজের ওয়েব লিংক দিতে চাইলে:</span>
+                <button type="button" onclick="document.getElementById('manualUrlBox').classList.toggle('hidden')" class="text-amber-600 hover:underline font-bold">লিংক বক্স খুলুন</button>
+              </div>
+              <input type="url" id="manualUrlBox" placeholder="https://... ছবির ওয়েব লিংক (ঐচ্ছিক)" 
+                     class="hidden w-full bg-white border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:border-amber-500 mt-1" oninput="handleManualUrlInput(this.value)" />
             </div>
 
             <div>
@@ -427,29 +397,60 @@
         <!-- Tab 2: Inventory / Manage Products -->
         <div id="adminTabList" class="hidden space-y-2 text-xs">
           <div class="flex justify-between items-center mb-2">
-            <span class="font-bold text-slate-700">বর্তমান পোশাকসমূহ:</span>
+            <span class="font-bold text-slate-700">বর্তমান পোশাকসমূহ (সবার ফোনে সিঙ্কড):</span>
+            <button onclick="seedInitialCatalog()" class="text-[11px] text-amber-600 hover:underline font-bold">🚀 ডেমো পোশাক আপলোড</button>
           </div>
           <div id="adminProductsTable" class="space-y-2">
-            <!-- Rendered by JS -->
+            <!-- Rendered live -->
           </div>
         </div>
 
-        <!-- Tab 3: Settings -->
-        <div id="adminTabSettings" class="hidden space-y-3 text-xs">
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
-            <h4 class="font-bold text-amber-900 mb-1">অর্ডার ডেলিভারি ও যোগাযোগ সেটিংস</h4>
-            <p class="text-[11px] text-amber-800">এখানে আপনার WhatsApp নম্বর পরিবর্তন করলে সাইটের সব অর্ডার সরাসরি নতুন নম্বরে চলে যাবে।</p>
+        <!-- Tab 3: Shop & Banner Settings (Categories & Hero Customization) -->
+        <div id="adminTabSettings" class="hidden space-y-4 text-xs">
+          
+          <!-- HERO BANNER IMAGE CUSTOMIZER -->
+          <div class="bg-pink-50/60 p-3.5 rounded-2xl border border-pink-200 space-y-2.5">
+            <h4 class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>🖼️</span> ২ নং স্ক্রিনশটের হিরো ব্যানার ছবি পরিবর্তন
+            </h4>
+            <p class="text-[11px] text-slate-500">হোমপেজের মূল ব্যানারে বাচ্চার যে ছবিটি দেখা যায় সেটি এখান থেকে নিজের ছবি দিয়ে বদলান:</p>
+
+            <div class="flex items-center gap-3">
+              <img id="settingsHeroPreview" src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=800&auto=format&fit=crop" 
+                   class="w-20 h-20 object-cover rounded-2xl border-2 border-pink-300 shadow-sm shrink-0" />
+              <div class="flex-1 space-y-1.5">
+                <label class="inline-block bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl font-bold text-slate-700 cursor-pointer shadow-sm">
+                  <i class="fa-solid fa-upload text-baby-coral mr-1"></i> ডিভাইস থেকে ব্যানার ছবি দিন
+                  <input type="file" accept="image/*" class="hidden" onchange="handleHeroBannerUpload(event)" />
+                </label>
+                <p class="text-[10px] text-slate-400">ছবি সিলেক্ট করার পর নিচে "সেটিংস সংরক্ষণ করুন" বাটনে ক্লিক করুন।</p>
+              </div>
+            </div>
           </div>
 
+          <!-- CATEGORY SECTION CUSTOMIZER -->
+          <div class="bg-amber-50/60 p-3.5 rounded-2xl border border-amber-200 space-y-3">
+            <h4 class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>🎈</span> ১ নং স্ক্রিনশটের "ক্যাটাগরি অনুযায়ী বেছে নিন" কাস্টমাইজ
+            </h4>
+            <p class="text-[11px] text-slate-500">বৃত্তাকার ক্যাটাগরি বাবলগুলোর ছবি বা ইমোজি ও নাম নিজের মতো সাজিয়ে নিন:</p>
+
+            <!-- Category items -->
+            <div class="space-y-2.5" id="adminCatListContainer">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- WHATSAPP NUMBER -->
           <div>
-            <label class="block font-bold text-slate-700 mb-1">দোকানের WhatsApp নম্বর (দেশীয় কোড সহ) *</label>
+            <label class="block font-bold text-slate-700 mb-1">দোকানের WhatsApp নম্বর (অর্ডার পাওয়ার জন্য) *</label>
             <input type="text" id="adminSettingWhatsapp" placeholder="88017xxxxxxxx" 
                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:bg-white focus:outline-none focus:border-amber-500" />
-            <p class="text-[10px] text-slate-400 mt-1">উদাহরণ: 8801712345678 (কোনো +, স্পেস বা হাইফেন ছাড়া)</p>
+            <p class="text-[10px] text-slate-400 mt-1">উদাহরণ: 8801712345678 (কোনো +, স্পেস বা ড্যাশ ছাড়া)</p>
           </div>
 
-          <button onclick="saveAdminSettings()" class="bg-slate-900 hover:bg-black text-white font-bold px-5 py-2.5 rounded-xl transition">
-            সেটিংস সংরক্ষণ করুন
+          <button onclick="saveAdminSettings()" id="saveSettingsBtn" class="w-full bg-slate-900 hover:bg-black text-white font-black py-3 rounded-xl shadow transition text-xs">
+            💾 সম্পূর্ণ শপ ও ব্যানার সেটিংস সংরক্ষণ করুন
           </button>
         </div>
 
@@ -650,7 +651,7 @@
     </button>
   </nav>
 
-  <!-- FIREBASE AUTH & FIRESTORE INTEGRATION -->
+  <!-- FIREBASE AUTH & REALTIME FIRESTORE INTEGRATION -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { 
@@ -663,10 +664,11 @@
     import {
       getFirestore,
       collection,
-      getDocs,
+      doc,
+      setDoc,
       addDoc,
       deleteDoc,
-      doc
+      onSnapshot
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
     const firebaseConfig = {
@@ -709,7 +711,7 @@
       await signOut(auth);
     });
 
-    // AUTH STATE LISTENER
+    // AUTH STATE LISTENER (STRICT SECURITY CHECK)
     onAuthStateChanged(auth, (user) => {
       window.currentUser = user;
       if (user) {
@@ -740,27 +742,32 @@
       }
     });
 
-    // FIRESTORE PRODUCTS LOADING & SYNC
-    window.loadFirestoreProducts = async function() {
-      try {
-        const querySnapshot = await getDocs(collection(db, "products"));
-        if (!querySnapshot.empty) {
-          const loaded = [];
-          querySnapshot.forEach((docSnap) => {
-            loaded.push({ docId: docSnap.id, ...docSnap.data() });
-          });
-          window.products = loaded;
+    // ================= REAL-TIME FIRESTORE PRODUCTS LISTENER =================
+    // এটি সবার ফোনের জন্য রিয়েল-টাইমে ডাটা সিঙ্ক রাখবে
+    onSnapshot(collection(db, "products"), (snapshot) => {
+      const items = [];
+      snapshot.forEach((docSnap) => {
+        // সেটিংস ডকুমেন্ট ছাড়া বাকি সব প্রোডাক্ট
+        if (docSnap.id === "_config_settings") {
+          const cfg = docSnap.data();
+          window.applyStoreConfig(cfg);
         } else {
-          // প্রথমবার ডাটাবেজ খালি থাকলে ডিফল্টগুলো লোড হবে
-          window.products = [...window.DEFAULT_PRODUCTS];
+          items.push({ docId: docSnap.id, ...docSnap.data() });
         }
-      } catch (e) {
-        console.warn("Using local defaults:", e);
-        window.products = JSON.parse(localStorage.getItem("tinysparks_store_products")) || [...window.DEFAULT_PRODUCTS];
+      });
+
+      if (items.length > 0) {
+        window.products = items;
+      } else {
+        // ডাটাবেজ খালি থাকলে ডিফল্ট লোড
+        window.products = [...window.DEFAULT_PRODUCTS];
       }
       window.renderProducts(window.products);
       window.renderAdminInventory();
-    };
+    }, (error) => {
+      console.warn("Firestore onSnapshot error:", error);
+      window.renderProducts(window.products);
+    });
 
     // FIRESTORE ADD PRODUCT (SERVER-VERIFIED)
     window.saveProductToFirestore = async function(prodData) {
@@ -769,12 +776,7 @@
         return false;
       }
       try {
-        const docRef = await addDoc(collection(db, "products"), prodData);
-        prodData.docId = docRef.id;
-        window.products.unshift(prodData);
-        window.saveStoreProducts();
-        window.renderProducts(window.products);
-        window.renderAdminInventory();
+        await addDoc(collection(db, "products"), prodData);
         return true;
       } catch (err) {
         console.error("Firestore Add Error:", err);
@@ -784,21 +786,21 @@
     };
 
     // FIRESTORE DELETE PRODUCT (SERVER-VERIFIED)
-    window.deleteProductFromFirestore = async function(id, docId) {
+    window.deleteProductFromFirestore = async function(docId, localId) {
       if (!window.currentUser || window.currentUser.email !== ADMIN_EMAIL) {
         alert("অননুমোদিত! শুধুমাত্র অ্যাডমিন প্রোডাক্ট মুছতে পারবে।");
         return;
       }
-      if (confirm("আপনি কি নিশ্চিত এই পোশাকটি স্থায়ীভাবে ক্লাউড ডাটাবেজ থেকে মুছে ফেলতে চান?")) {
+      if (confirm("আপনি কি নিশ্চিত এই পোশাকটি স্থায়ীভাবে ডাটাবেজ থেকে মুছে ফেলতে চান?")) {
         try {
           if (docId) {
             await deleteDoc(doc(db, "products", docId));
+          } else {
+            window.products = window.products.filter(p => p.id !== localId);
+            window.renderProducts(window.products);
+            window.renderAdminInventory();
           }
-          window.products = window.products.filter(p => p.id !== id);
-          window.saveStoreProducts();
-          window.renderProducts(window.products);
-          window.renderAdminInventory();
-          alert("পোশাকটি ডাটাবেজ থেকে মুছে ফেলা হয়েছে!");
+          alert("পোশাকটি সফলভাবে মুছে ফেলা হয়েছে!");
         } catch (err) {
           console.error("Firestore Delete Error:", err);
           alert("মুছতে সমস্যা হয়েছে: " + err.message);
@@ -806,14 +808,46 @@
       }
     };
 
-    // সাইট লোড হলেই ক্লাউড থেকে প্রোডাক্ট আনবে
-    window.loadFirestoreProducts();
+    // FIRESTORE SAVE SETTINGS (Hero & Categories)
+    window.saveConfigToFirestore = async function(configData) {
+      if (!window.currentUser || window.currentUser.email !== ADMIN_EMAIL) {
+        alert("শুধুমাত্র অ্যাডমিন সেটিংস পরিবর্তন করতে পারবে!");
+        return false;
+      }
+      try {
+        await setDoc(doc(db, "products", "_config_settings"), configData, { merge: true });
+        return true;
+      } catch (err) {
+        console.error("Settings save error:", err);
+        alert("সেটিংস সেভ করতে সমস্যা: " + err.message);
+        return false;
+      }
+    };
+
+    // SEED INITIAL CATALOG TO FIRESTORE
+    window.seedInitialCatalog = async function() {
+      if (!window.currentUser || window.currentUser.email !== ADMIN_EMAIL) {
+        alert("শুধুমাত্র অ্যাডমিন আপলোড করতে পারবে!");
+        return;
+      }
+      if (confirm("আপনি কি ডেমো ৬টি পোশাক ক্লাউড ডাটাবেজে আপলোড করতে চান?")) {
+        try {
+          for (const item of window.DEFAULT_PRODUCTS) {
+            await addDoc(collection(db, "products"), item);
+          }
+          alert("🎉 ডেমো পোশাক সফলভাবে ক্লাউডে আপলোড হয়েছে!");
+        } catch (err) {
+          alert("আপলোডে এরর: " + err.message);
+        }
+      }
+    };
   </script>
 
   <!-- STORE & CART & UI LOGIC -->
   <script>
     const ADMIN_EMAIL = "marufclaud@gmail.com";
 
+    // ডিফল্ট প্রোডাক্ট তালিকা
     window.DEFAULT_PRODUCTS = [
       {
         id: 1,
@@ -896,10 +930,66 @@
     ];
 
     window.products = [...window.DEFAULT_PRODUCTS];
-    let storeWhatsapp = localStorage.getItem("tinysparks_store_whatsapp") || "8801700000000";
+
+    // ডিফল্ট ক্যাটাগরি কনফিগ (১ নং স্ক্রিনশট)
+    window.storeConfig = {
+      heroBannerImg: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=800&auto=format&fit=crop",
+      storeWhatsapp: "8801700000000",
+      categories: [
+        { id: "all", name: "সব কালেকশন", sub: "", icon: "✨", img: "" },
+        { id: "newborn", name: "Newborn", sub: "০–১২ মাস", icon: "👶", img: "" },
+        { id: "toddler", name: "Toddler", sub: "১–৩ বছর", icon: "🧸", img: "" },
+        { id: "boys", name: "Boys", sub: "৩–৮ বছর", icon: "👦", img: "" },
+        { id: "girls", name: "Girls", sub: "৩–৮ বছর", icon: "👧", img: "" }
+      ]
+    };
+
     let cart = JSON.parse(localStorage.getItem("tinysparks_cart")) || [];
     const chosenSizeMap = {};
+    let tempProductBase64 = "";
+    let tempHeroBase64 = "";
 
+    // APPLY STORE CONFIG (Hero Banner & Categories)
+    window.applyStoreConfig = function(cfg) {
+      if (!cfg) return;
+      if (cfg.heroBannerImg) {
+        document.getElementById("heroBannerImg").src = cfg.heroBannerImg;
+        document.getElementById("settingsHeroPreview").src = cfg.heroBannerImg;
+        window.storeConfig.heroBannerImg = cfg.heroBannerImg;
+      }
+      if (cfg.storeWhatsapp) {
+        window.storeConfig.storeWhatsapp = cfg.storeWhatsapp;
+        document.getElementById("adminSettingWhatsapp").value = cfg.storeWhatsapp;
+      }
+      if (cfg.categories && Array.isArray(cfg.categories)) {
+        window.storeConfig.categories = cfg.categories;
+        renderCategoryBubbles();
+        renderAdminCategorySettings();
+      }
+    };
+
+    // RENDER CATEGORY BUBBLES IN HOMEPAGE
+    function renderCategoryBubbles() {
+      const container = document.getElementById("categoryContainer");
+      container.innerHTML = window.storeConfig.categories.map((cat, idx) => {
+        const hasImg = cat.img && cat.img.length > 10;
+        return `
+          <button onclick="filterByCat('${cat.id}', this)" class="category-bubble ${idx === 0 ? 'active' : ''} flex flex-col items-center gap-1.5 shrink-0 group">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] ${idx === 0 ? 'story-ring' : 'bg-slate-100'} transition group-hover:scale-105">
+              <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-2xl shadow-sm overflow-hidden">
+                ${hasImg ? `<img src="${cat.img}" alt="" class="w-full h-full object-cover">` : `<span>${cat.icon || '🛍️'}</span>`}
+              </div>
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-bold text-slate-800 block group-hover:text-baby-coral">${cat.name}</span>
+              ${cat.sub ? `<span class="text-[10px] text-slate-400 block">${cat.sub}</span>` : ''}
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    // RENDER PRODUCTS GRID
     window.renderProducts = function(items) {
       const grid = document.getElementById("productGrid");
       document.getElementById("productCounter").textContent = `${items.length}টি পোশাক`;
@@ -914,7 +1004,7 @@
         return `
           <div class="bg-white rounded-3xl p-3 sm:p-4 border border-pink-100 hover:border-pink-300 shadow-card hover:shadow-cardHover hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
             <div>
-              <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-50">
+              <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-50 border border-slate-100">
                 <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 <span class="absolute top-2.5 left-2.5 ${item.tagColor || 'bg-rose-500'} text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-sm">
                   ${item.badge}
@@ -1157,7 +1247,7 @@
       msg += `💰 *মোট বিল:* ৳ ${total} (ক্যাশ অন ডেলিভারি)\n`;
 
       const encoded = encodeURIComponent(msg);
-      const url = `https://wa.me/${storeWhatsapp}?text=${encoded}`;
+      const url = `https://wa.me/${window.storeConfig.storeWhatsapp}?text=${encoded}`;
 
       cart = [];
       saveCart();
@@ -1167,6 +1257,73 @@
       window.open(url, "_blank");
     }
 
+    // ==================== IMAGE COMPRESSION UTILITY ====================
+    // ফাইল সিলেক্ট করলে স্বয়ংক্রিয়ভাবে কম্প্রেস করে দ্রুত স্টোর করবে
+    function compressImageFile(file, maxWidth = 600, quality = 0.75) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement("canvas");
+            let width = img.width;
+            let height = img.height;
+            if (width > maxWidth) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            }
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL("image/jpeg", quality));
+          };
+          img.onerror = reject;
+          img.src = e.target.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // PRODUCT FILE SELECT HANDLER
+    async function handleProductFileChange(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        tempProductBase64 = await compressImageFile(file, 600, 0.75);
+        const preview = document.getElementById("productPreviewImg");
+        preview.src = tempProductBase64;
+        preview.classList.remove("hidden");
+        document.getElementById("productFilePlaceholder").classList.add("hidden");
+      } catch (err) {
+        alert("ছবি প্রসেস করতে ব্যর্থ হয়েছে!");
+      }
+    }
+
+    function handleManualUrlInput(val) {
+      if (val) {
+        tempProductBase64 = val;
+        const preview = document.getElementById("productPreviewImg");
+        preview.src = val;
+        preview.classList.remove("hidden");
+        document.getElementById("productFilePlaceholder").classList.add("hidden");
+      }
+    }
+
+    // HERO BANNER FILE UPLOAD HANDLER
+    async function handleHeroBannerUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        tempHeroBase64 = await compressImageFile(file, 800, 0.8);
+        document.getElementById("settingsHeroPreview").src = tempHeroBase64;
+        window.storeConfig.heroBannerImg = tempHeroBase64;
+      } catch (err) {
+        alert("ব্যানার ছবি প্রসেস করতে সমস্যা হয়েছে!");
+      }
+    }
+
     // ==================== ADMIN PANEL SECURE CONTROLLER ====================
     window.openAdminPanel = function() {
       if (!window.currentUser || window.currentUser.email !== ADMIN_EMAIL) {
@@ -1174,8 +1331,10 @@
         return;
       }
       document.getElementById("adminPanelModal").classList.remove("hidden");
-      document.getElementById("adminSettingWhatsapp").value = storeWhatsapp;
+      document.getElementById("adminSettingWhatsapp").value = window.storeConfig.storeWhatsapp;
+      document.getElementById("settingsHeroPreview").src = window.storeConfig.heroBannerImg;
       window.renderAdminInventory();
+      renderAdminCategorySettings();
     };
 
     window.closeAdminPanel = function() {
@@ -1194,17 +1353,12 @@
       if (tab === 'list') {
         window.renderAdminInventory();
       }
+      if (tab === 'settings') {
+        renderAdminCategorySettings();
+      }
     };
 
-    window.setSampleImg = function(type) {
-      const samples = {
-        1: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600&auto=format&fit=crop",
-        2: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=600&auto=format&fit=crop",
-        3: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop"
-      };
-      document.getElementById("newProdImg").value = samples[type] || "";
-    };
-
+    // HANDLE PRODUCT ADD (WITH REAL-TIME FIRESTORE PUSH)
     window.handleAdminAddProduct = async function(e) {
       e.preventDefault();
       const title = document.getElementById("newProdTitle").value.trim();
@@ -1212,7 +1366,11 @@
       const badge = document.getElementById("newProdBadge").value;
       const price = parseInt(document.getElementById("newProdPrice").value);
       const originalPrice = parseInt(document.getElementById("newProdOrigPrice").value);
-      const img = document.getElementById("newProdImg").value.trim();
+
+      if (!tempProductBase64) {
+        alert("দয়া করে ডিভাইস থেকে পোশাকের ছবি সিলেক্ট করুন!");
+        return;
+      }
 
       const checkedSizes = [];
       document.querySelectorAll("#newProdSizesContainer input[type='checkbox']:checked").forEach(cb => {
@@ -1230,7 +1388,7 @@
         category,
         price,
         originalPrice,
-        img,
+        img: tempProductBase64,
         sizes: checkedSizes,
         rating: 5.0,
         reviews: 1,
@@ -1239,7 +1397,7 @@
       };
 
       const btn = document.getElementById("adminSaveBtn");
-      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>ডাটাবেজে সেভ হচ্ছে...</span>`;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>ক্লাউড ডাটাবেজে সেভ হচ্ছে...</span>`;
       btn.disabled = true;
 
       const success = await window.saveProductToFirestore(newProduct);
@@ -1247,8 +1405,11 @@
       btn.disabled = false;
 
       if (success) {
-        alert("🎉 নতুন পোশাক সফলভাবে ক্লাউড ডাটাবেজে সংরক্ষিত হয়েছে!");
+        alert("🎉 নতুন পোশাক সফলভাবে ক্লাউড ডাটাবেজে যুক্ত হয়েছে এবং সবার ফোনে দেখা যাচ্ছে!");
         e.target.reset();
+        tempProductBase64 = "";
+        document.getElementById("productPreviewImg").classList.add("hidden");
+        document.getElementById("productFilePlaceholder").classList.remove("hidden");
         window.switchAdminTab('list');
       }
     };
@@ -1262,7 +1423,7 @@
         return;
       }
 
-      container.innerHTML = window.products.map((item, idx) => `
+      container.innerHTML = window.products.map((item) => `
         <div class="flex items-center justify-between gap-3 p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
           <img src="${item.img}" class="w-12 h-12 object-cover rounded-lg border shrink-0">
           <div class="flex-1 min-w-0">
@@ -1273,30 +1434,90 @@
               <span>সাইজ: ${item.sizes.join(', ')}</span>
             </div>
           </div>
-          <button onclick="window.deleteProductFromFirestore(${item.id}, '${item.docId || ''}')" class="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded-lg text-xs font-bold transition">
+          <button onclick="window.deleteProductFromFirestore('${item.docId || ''}', ${item.id})" class="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded-lg text-xs font-bold transition">
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>
       `).join('');
     };
 
-    window.saveStoreProducts = function() {
-      localStorage.setItem("tinysparks_store_products", JSON.stringify(window.products));
-    };
+    // RENDER ADMIN CATEGORY SETTINGS LIST
+    function renderAdminCategorySettings() {
+      const container = document.getElementById("adminCatListContainer");
+      if (!container) return;
 
-    window.saveAdminSettings = function() {
+      container.innerHTML = window.storeConfig.categories.map((cat, idx) => `
+        <div class="bg-white p-2.5 rounded-xl border border-slate-200 space-y-2">
+          <div class="flex items-center gap-2 justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-base">${cat.icon || '🛍️'}</span>
+              <span class="font-bold text-slate-800">${cat.name} (${cat.id})</span>
+            </div>
+            <label class="text-[10px] bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-800 px-2.5 py-1 rounded-lg cursor-pointer font-bold transition">
+              <i class="fa-solid fa-camera mr-1"></i> ছবি আপলোড
+              <input type="file" accept="image/*" class="hidden" onchange="handleCatImgUpload(event, ${idx})" />
+            </label>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <span class="text-[9px] text-slate-400 block">নাম:</span>
+              <input type="text" value="${cat.name}" onchange="updateCatProperty(${idx}, 'name', this.value)" 
+                     class="w-full bg-slate-50 border rounded-lg px-2 py-1 text-xs" />
+            </div>
+            <div>
+              <span class="text-[9px] text-slate-400 block">সাবটাইটেল/বয়স:</span>
+              <input type="text" value="${cat.sub || ''}" onchange="updateCatProperty(${idx}, 'sub', this.value)" 
+                     class="w-full bg-slate-50 border rounded-lg px-2 py-1 text-xs" />
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function handleCatImgUpload(e, idx) {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        const base64 = await compressImageFile(file, 200, 0.8);
+        window.storeConfig.categories[idx].img = base64;
+        renderAdminCategorySettings();
+        renderCategoryBubbles();
+        alert(`✅ ${window.storeConfig.categories[idx].name} ক্যাটাগরির ছবি আপডেট হয়েছে! সেভ করতে নিচে "সংরক্ষণ করুন" বাটনে চাপুন।`);
+      } catch (err) {
+        alert("ছবি প্রসেস ব্যর্থ!");
+      }
+    }
+
+    function updateCatProperty(idx, prop, val) {
+      window.storeConfig.categories[idx][prop] = val;
+      renderCategoryBubbles();
+    }
+
+    // SAVE ALL SETTINGS TO FIRESTORE
+    window.saveAdminSettings = async function() {
       const wp = document.getElementById("adminSettingWhatsapp").value.trim();
       if (!wp) {
         alert("দয়া করে WhatsApp নম্বর দিন");
         return;
       }
-      storeWhatsapp = wp;
-      localStorage.setItem("tinysparks_store_whatsapp", storeWhatsapp);
-      alert("✅ WhatsApp নম্বর সফলভাবে সংরক্ষণ করা হয়েছে!");
-      window.closeAdminPanel();
+      window.storeConfig.storeWhatsapp = wp;
+
+      const btn = document.getElementById("saveSettingsBtn");
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> সেভ হচ্ছে...`;
+      btn.disabled = true;
+
+      const success = await window.saveConfigToFirestore(window.storeConfig);
+      btn.innerHTML = `💾 সম্পূর্ণ শপ ও ব্যানার সেটিংস সংরক্ষণ করুন`;
+      btn.disabled = false;
+
+      if (success) {
+        alert("✅ ব্যানার ছবি, ক্যাটাগরি এবং WhatsApp সেটিংস সফলভাবে ক্লাউড ডাটাবেজে সংরক্ষণ করা হয়েছে!");
+        window.closeAdminPanel();
+      }
     };
 
-    // Initial render
+    // Initial renders
+    renderCategoryBubbles();
     updateCartUI();
   </script>
 </body>
