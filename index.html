@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TinySparks® | Premium Baby & Children Fashion</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts: Plus Jakarta Sans & Hind Siliguri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              500: '#f43f5e',
+              600: '#e11d48',
+              navy: '#0f172a',
+              sand: '#fffbeb',
+              sky: '#f0f9ff'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Hind Siliguri"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-[#FAF9F6] text-slate-800 antialiased font-sans pb-24 md:pb-12 selection:bg-rose-100 selection:text-rose-600">
+
+  <!-- TOP TICKER BAR -->
+  <aside aria-label="Announcement" class="bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 text-white text-[11px] md:text-xs py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between font-medium">
+      <div class="flex items-center gap-2 mx-auto md:mx-0">
+        <span class="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">স্পেশাল অফার</span>
+        <span>✨ ১৫০০ টাকার অর্ডারে সারাদেশে ডেলিভারি চার্জ সম্পূর্ণ ফ্রি!</span>
+      </div>
+      <div class="hidden md:flex items-center gap-5 text-xs text-white/90">
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-amber-300"></i> ১০০% পিওর অর্গানিক কটন</span>
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-amber-300"></i> ৭ দিনের সহজ এক্সচেঞ্জ</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- LUXURY RESPONSIVE NAVBAR -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-slate-100/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white text-lg font-black shadow-md shadow-rose-500/20 group-hover:scale-105 transition duration-300">
+          <i class="fa-solid fa-crown text-sm"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-1">
+            <span class="text-xl md:text-2xl font-black tracking-tight text-slate-900">Tiny<span class="text-rose-500">Sparks</span></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+          </div>
+          <p class="text-[9px] font-bold tracking-[0.2em] text-slate-400 uppercase -mt-0.5">Kids & Baby Couture</p>
+        </div>
+      </a>
+
+      <!-- Search Bar with Quick Filter (Desktop) -->
+      <div class="hidden lg:flex flex-1 max-w-xl mx-6 relative">
+        <div class="w-full relative flex items-center">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-sm"></i>
+          <input type="text" id="searchInput" placeholder="বাচ্চার পোশাক, বয়স (যেমন: 1Y, 6M) বা ধরন লিখে খুঁজুন..." 
+                 class="w-full bg-slate-100/80 hover:bg-slate-100 focus:bg-white border border-transparent focus:border-rose-300 rounded-full py-2.5 pl-11 pr-24 text-xs font-medium text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-rose-500/10 transition" />
+          <button class="absolute right-1.5 bg-slate-900 hover:bg-rose-600 text-white text-xs font-semibold px-4 py-1.5 rounded-full transition duration-200">
+            খুঁজুন
+          </button>
+        </div>
+      </div>
+
+      <!-- User & Cart Header Actions -->
+      <div class="flex items-center gap-2.5 md:gap-3">
+        
+        <!-- Size Chart Trigger -->
+        <button onclick="toggleSizeChart(true)" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-rose-600 bg-slate-100 hover:bg-rose-50 px-3.5 py-2 rounded-full border border-slate-200/60 transition">
+          <i class="fa-solid fa-ruler-combined text-rose-500 text-xs"></i>
+          <span>সাইজ গাইড</span>
+        </button>
+
+        <!-- Cart Trigger Button -->
+        <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-2xl bg-white border border-slate-200/80 text-slate-800 hover:text-rose-600 hover:border-rose-200 hover:shadow-md transition duration-200">
+          <i class="fa-solid fa-bag-shopping text-base"></i>
+          <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center ring-2 ring-white shadow-sm">
+            0
+          </span>
+        </button>
+
+        <!-- Firebase Auth Login / User Badge -->
+        <div id="authContainer" class="flex items-center">
+          <button id="googleLoginBtn" class="flex items-center gap-2 bg-slate-900 hover:bg-rose-600 text-white text-xs font-bold px-4 py-2.5 rounded-2xl shadow-sm hover:shadow-rose-500/20 transition duration-300">
+            <i class="fa-brands fa-google text-xs"></i>
+            <span class="hidden sm:inline">লগইন</span>
+          </button>
+          
+          <div id="userProfile" class="hidden flex items-center gap-2 bg-white border border-slate-200 pl-1 pr-3 py-1 rounded-2xl shadow-sm">
+            <img id="userAvatar" src="" alt="User" class="w-7 h-7 rounded-xl object-cover ring-1 ring-rose-300">
+            <div class="hidden sm:flex flex-col text-left leading-tight">
+              <span id="userName" class="text-[11px] font-bold text-slate-800 max-w-[85px] truncate">User</span>
+              <span class="text-[9px] text-emerald-600 font-semibold flex items-center gap-1"><i class="fa-solid fa-circle text-[6px]"></i> একাউন্ট</span>
+            </div>
+            <button id="logoutBtn" title="লগআউট" class="text-slate-400 hover:text-rose-500 text-xs p-1 ml-1 transition">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Search Row -->
+    <div class="px-4 pb-3 lg:hidden">
+      <div class="relative w-full">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+        <input type="text" id="mobileSearchInput" placeholder="বাচ্চাদের বয়স বা ড্রেসের ধরন লিখুন..." 
+               class="w-full bg-slate-100/90 border border-slate-200/80 rounded-xl py-2 px-3 pl-9 text-xs focus:outline-none focus:border-rose-400 focus:bg-white transition" />
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5 space-y-8">
+    
+    <!-- HIGH-END HERO SECTION -->
+    <section class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-rose-50 via-amber-50/40 to-sky-50 border border-rose-100/70 p-6 sm:p-8 lg:p-12 shadow-sm">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-4 text-center lg:text-left z-10">
+          <div class="inline-flex items-center gap-2 bg-white/90 border border-rose-200/80 px-3.5 py-1.5 rounded-full shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">২০২৬ প্রিমিয়াম সামার কালেকশন</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
+            শিশুর কোমল ত্বকের জন্য <br class="hidden sm:inline"/>
+            <span class="bg-gradient-to-r from-rose-600 to-amber-500 bg-clip-text text-transparent">১০০% স্বাস্থ্যকর ও খাঁটি সুতি</span> পোশাক
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+            কোনো ক্ষতিকর কেমিক্যাল ছাড়া তৈরি হাইপোঅ্যালার্জেনিক কাপড়। নবজাতক থেকে শুরু করে ৮ বছর পর্যন্ত বাচ্চাদের সবচেয়ে স্টাইলিশ ও আরামদায়ক কালেকশন।
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+            <a href="#products-section" class="bg-rose-500 hover:bg-rose-600 text-white text-xs sm:text-sm font-bold px-7 py-3.5 rounded-2xl shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 transition duration-300 flex items-center gap-2">
+              <i class="fa-solid fa-basket-shopping"></i>
+              <span>কালেকশন এক্সপ্লোর করুন</span>
+            </a>
+            <button onclick="toggleSizeChart(true)" class="bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-bold px-5 py-3.5 rounded-2xl border border-slate-200 shadow-sm transition flex items-center gap-2">
+              <i class="fa-solid fa-ruler-combined text-rose-500"></i>
+              <span>স্মার্ট সাইজ চার্ট</span>
+            </button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-4 border-t border-slate-200/60 grid grid-cols-3 gap-2 max-w-md mx-auto lg:mx-0 text-left">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center text-rose-500 shadow-sm text-xs font-bold">✓</div>
+              <span class="text-[11px] font-semibold text-slate-600 leading-tight">অর্গানিক কটন</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center text-rose-500 shadow-sm text-xs font-bold">⚡</div>
+              <span class="text-[11px] font-semibold text-slate-600 leading-tight">দ্রুত ডেলিভারি</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-lg bg-white flex items-center justify-center text-rose-500 shadow-sm text-xs font-bold">↺</div>
+              <span class="text-[11px] font-semibold text-slate-600 leading-tight">সহজ রিটার্ন</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Showcase -->
+        <div class="lg:col-span-5 relative flex justify-center">
+          <div class="relative w-full max-w-sm">
+            <!-- Main Hero Card -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-slate-100 relative group">
+              <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&auto=format&fit=crop" 
+                   alt="Trendy Baby Model" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <span class="bg-rose-500 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider">টপ চয়েস</span>
+                <p class="text-sm font-bold mt-1">নিউবর্ন স্পেশাল সেট (৩ পিস)</p>
+                <p class="text-xs text-rose-200 font-semibold">শুরু মাত্র ৳ ৫৯০ থেকে</p>
+              </div>
+            </div>
+
+            <!-- Floating Pill 1 -->
+            <div class="absolute -top-3 -left-3 sm:-left-6 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce" style="animation-duration: 4s;">
+              <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-sm font-bold">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase">প্যারেন্টস রেটিং</p>
+                <p class="text-xs font-extrabold text-slate-800">৪.৯ ★ (১,২০০+ রিভিউ)</p>
+              </div>
+            </div>
+
+            <!-- Floating Pill 2 -->
+            <div class="absolute -bottom-3 -right-3 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-2.5">
+              <span class="flex h-3 w-3 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </span>
+              <p class="text-xs font-bold text-slate-800">ক্যাশ অন ডেলিভারি প্রযোজ্য</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY VISUAL TILES -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-lg md:text-xl font-bold text-slate-900">বয়স ও ক্যাটাগরি অনুযায়ী শপ করুন</h2>
+          <p class="text-xs text-slate-500">আপনার বাচ্চার বয়সের উপর ভিত্তি করে পারফেক্ট সাইজ বেছে নিন</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3" id="categoryTabs">
+        <button onclick="filterCategory('all', this)" class="cat-btn active bg-slate-900 text-white rounded-2xl p-3.5 text-center transition flex flex-col items-center gap-2 shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-lg">🛍️</div>
+          <span class="text-xs font-bold">সকল কালেকশন</span>
+        </button>
+
+        <button onclick="filterCategory('newborn', this)" class="cat-btn bg-white hover:bg-rose-50 border border-slate-200/80 text-slate-700 rounded-2xl p-3.5 text-center transition flex flex-col items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-pink-100 text-rose-500 flex items-center justify-center text-lg">👶</div>
+          <div>
+            <span class="text-xs font-bold block text-slate-800">Newborn</span>
+            <span class="text-[10px] text-slate-400">০–১২ মাস</span>
+          </div>
+        </button>
+
+        <button onclick="filterCategory('toddler', this)" class="cat-btn bg-white hover:bg-rose-50 border border-slate-200/80 text-slate-700 rounded-2xl p-3.5 text-center transition flex flex-col items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-lg">🧸</div>
+          <div>
+            <span class="text-xs font-bold block text-slate-800">Toddler</span>
+            <span class="text-[10px] text-slate-400">১–৩ বছর</span>
+          </div>
+        </button>
+
+        <button onclick="filterCategory('boys', this)" class="cat-btn bg-white hover:bg-rose-50 border border-slate-200/80 text-slate-700 rounded-2xl p-3.5 text-center transition flex flex-col items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-lg">👦</div>
+          <div>
+            <span class="text-xs font-bold block text-slate-800">Little Boys</span>
+            <span class="text-[10px] text-slate-400">৩–৮ বছর</span>
+          </div>
+        </button>
+
+        <button onclick="filterCategory('girls', this)" class="cat-btn bg-white hover:bg-rose-50 border border-slate-200/80 text-slate-700 rounded-2xl p-3.5 text-center transition flex flex-col items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-lg">👧</div>
+          <div>
+            <span class="text-xs font-bold block text-slate-800">Princess Girls</span>
+            <span class="text-[10px] text-slate-400">৩–৮ বছর</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- PRODUCT CATALOG GRID -->
+    <section id="products-section" class="scroll-mt-24">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200/80 mb-5">
+        <div class="flex items-center gap-2.5">
+          <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+          <h2 class="text-xl font-black text-slate-900">ট্রেন্ডিং বেবি ড্রেস কালেকশন</h2>
+        </div>
+        <span id="productCounter" class="text-xs font-semibold text-slate-500 bg-white px-3 py-1 rounded-full border border-slate-200">
+          ৬টি পোশাক
+        </span>
+      </div>
+
+      <!-- Product Cards Grid -->
+      <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- ASSURANCE HIGHLIGHTS -->
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">১০০% কম্বড কটন</h4>
+            <p class="text-[11px] text-slate-500">শিশুর ত্বকে চুলকানি বা র‍্যাশ হবে না</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">ক্যাশ অন হোম ডেলিভারি</h4>
+            <p class="text-[11px] text-slate-500">পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">৭ দিনের সহজ পরিবর্তন</h4>
+            <p class="text-[11px] text-slate-500">সাইজ না মিললে দ্রুত এক্সচেঞ্জ সুবিধা</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-slate-900">২৪/৭ কাস্টমার সাপোর্ট</h4>
+            <p class="text-[11px] text-slate-500">হোয়াটসঅ্যাপে যেকোনো প্রয়োজনে সাহায্য</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CART SLIDE-OVER DRAWER -->
+  <div id="cartBackdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+  <aside id="cartDrawer" class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-rose-500 text-white flex items-center justify-center text-sm shadow-sm">
+          <i class="fa-solid fa-basket-shopping"></i>
+        </div>
+        <div>
+          <h3 class="font-extrabold text-slate-900 text-sm">আপনার শপিং ব্যাগ</h3>
+          <p class="text-[10px] text-slate-400 font-semibold"><span id="cartDrawerCount">0</span>টি আইটেম যুক্ত রয়েছে</p>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="w-8 h-8 rounded-full bg-white hover:bg-slate-200 text-slate-500 flex items-center justify-center text-sm transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Items List -->
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-3">
+      <!-- Items dynamically populated -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-5 border-t border-slate-100 bg-slate-50/80 space-y-3">
+      <div class="space-y-1.5 text-xs">
+        <div class="flex justify-between text-slate-500">
+          <span>আইটেম সর্বমোট:</span>
+          <span id="cartSubtotalText" class="font-bold text-slate-800">৳ 0</span>
+        </div>
+        <div class="flex justify-between text-slate-500">
+          <span>ডেলিভারি চার্জ:</span>
+          <span class="text-emerald-600 font-semibold">চেকআউটে নির্ধারিত হবে</span>
+        </div>
+      </div>
+
+      <button onclick="openCheckoutModal()" class="w-full bg-slate-900 hover:bg-rose-600 text-white font-bold py-3.5 rounded-2xl shadow-lg transition duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm">
+        <i class="fa-solid fa-shield-halved text-amber-400"></i>
+        <span>অর্ডার ও ডেলিভারি তথ্য দিন</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- LUXURY CHECKOUT & WHATSAPP MODAL -->
+  <div id="checkoutModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 relative shadow-2xl border border-slate-100 max-h-[90vh] overflow-y-auto">
+      <button onclick="closeCheckoutModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div>
+          <h3 class="text-base sm:text-lg font-black text-slate-900">ডেলিভারি নিশ্চিতকরণ</h3>
+          <p class="text-xs text-slate-500">তথ্য দিলে সরাসরি WhatsApp-এ ক্যাশ অন ডেলিভারি অর্ডার যাবে</p>
+        </div>
+      </div>
+
+      <form id="checkoutForm" onsubmit="handlePlaceOrder(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">আপনার পূর্ণ নাম *</label>
+          <input type="text" id="custName" required placeholder="যেমন: মারুফ আহমেদ" 
+                 class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:bg-white focus:outline-none focus:border-rose-500 transition" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">সচল মোবাইল নম্বর *</label>
+          <input type="tel" id="custPhone" required placeholder="০১৭xxxxxxxx" 
+                 class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:bg-white focus:outline-none focus:border-rose-500 transition" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">পূর্ণ ডেলিভারি ঠিকানা *</label>
+          <textarea id="custAddress" required rows="2" placeholder="বাসা/ফ্ল্যাট নম্বর, রোড, থানা এবং জেলা" 
+                    class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:bg-white focus:outline-none focus:border-rose-500 transition"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">ডেলিভারি এরিয়া নির্বাচন করুন *</label>
+          <select id="deliveryZone" onchange="calculateOrderTotal()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-800 focus:bg-white focus:outline-none focus:border-rose-500 transition font-medium">
+            <option value="60">ঢাকার ভেতরে হোম ডেলিভারি (৳ ৬০)</option>
+            <option value="120">ঢাকার বাহিরে সারাদেশে হোম ডেলিভারি (৳ ১২০)</option>
+          </select>
+        </div>
+
+        <!-- Summary Box -->
+        <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 space-y-1.5 text-xs">
+          <div class="flex justify-between text-slate-600">
+            <span>পণ্যগুলোর মোট মূল্য:</span>
+            <span id="modalSubtotal" class="font-bold text-slate-800">৳ 0</span>
+          </div>
+          <div class="flex justify-between text-slate-600">
+            <span>ডেলিভারি ফি:</span>
+            <span id="modalDelivery" class="font-bold text-slate-800">৳ ৬০</span>
+          </div>
+          <div class="flex justify-between border-t border-slate-200 pt-2 text-sm font-black text-rose-600">
+            <span>সর্বমোট পরিশোধযোগ্য (COD):</span>
+            <span id="modalFinalTotal">৳ 0</span>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 rounded-2xl shadow-lg shadow-emerald-600/25 transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>WhatsApp-এ অর্ডার সাবমিট করুন</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SMART SIZE CHART MODAL -->
+  <div id="sizeChartModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 relative shadow-2xl border border-slate-100">
+      <button onclick="toggleSizeChart(false)" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-base">
+          <i class="fa-solid fa-ruler-combined"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-black text-slate-900">শিশুদের স্ট্যান্ডার্ড সাইজ পরিমাপক</h3>
+          <p class="text-xs text-slate-500">সঠিক সাইজ পেতে বাচ্চার বয়স ও ওজন মিলিয়ে নিন</p>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 mt-3">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+            <tr>
+              <th class="p-3">বয়স (Age)</th>
+              <th class="p-3">উচ্চতা (Height)</th>
+              <th class="p-3">ওজন (Weight)</th>
+              <th class="p-3">সাইজ ট্যাগ</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-600 font-medium">
+            <tr class="hover:bg-rose-50/50 transition">
+              <td class="p-3 font-bold text-slate-800">০–৩ মাস</td>
+              <td class="p-3">৫৫–৬১ সেমি</td>
+              <td class="p-3">৩–৫.৫ কেজি</td>
+              <td class="p-3"><span class="bg-rose-100 text-rose-700 font-black px-2 py-0.5 rounded-md text-[10px]">0-3M</span></td>
+            </tr>
+            <tr class="hover:bg-rose-50/50 transition">
+              <td class="p-3 font-bold text-slate-800">৩–৬ মাস</td>
+              <td class="p-3">৬১–৬৭ সেমি</td>
+              <td class="p-3">৫.৫–৭.৫ কেজি</td>
+              <td class="p-3"><span class="bg-rose-100 text-rose-700 font-black px-2 py-0.5 rounded-md text-[10px]">3-6M</span></td>
+            </tr>
+            <tr class="hover:bg-rose-50/50 transition">
+              <td class="p-3 font-bold text-slate-800">৬–১২ মাস</td>
+              <td class="p-3">৬৭–৭৮ সেমি</td>
+              <td class="p-3">৭.৫–১০ কেজি</td>
+              <td class="p-3"><span class="bg-rose-100 text-rose-700 font-black px-2 py-0.5 rounded-md text-[10px]">6-12M</span></td>
+            </tr>
+            <tr class="hover:bg-rose-50/50 transition">
+              <td class="p-3 font-bold text-slate-800">১–২ বছর</td>
+              <td class="p-3">৭৮–৮৮ সেমি</td>
+              <td class="p-3">১০–১২.৫ কেজি</td>
+              <td class="p-3"><span class="bg-amber-100 text-amber-800 font-black px-2 py-0.5 rounded-md text-[10px]">1-2Y</span></td>
+            </tr>
+            <tr class="hover:bg-rose-50/50 transition">
+              <td class="p-3 font-bold text-slate-800">২–৪ বছর</td>
+              <td class="p-3">৮৮–১০০ সেমি</td>
+              <td class="p-3">১২.৫–১৬ কেজি</td>
+              <td class="p-3"><span class="bg-sky-100 text-sky-800 font-black px-2 py-0.5 rounded-md text-[10px]">2-4Y</span></td>
+            </tr>
+            <tr class="hover:bg-rose-50/50 transition">
+              <td class="p-3 font-bold text-slate-800">৪–৬ বছর</td>
+              <td class="p-3">১০০–১১২ সেমি</td>
+              <td class="p-3">১৬–২১ কেজি</td>
+              <td class="p-3"><span class="bg-purple-100 text-purple-800 font-black px-2 py-0.5 rounded-md text-[10px]">4-6Y</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button onclick="toggleSizeChart(false)" class="mt-4 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs transition">
+        সাইজ বোঝা গেছে
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOATING MOBILE BOTTOM DOCK -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2.5 px-6 flex justify-around items-center z-40 md:hidden shadow-lg">
+    <a href="#" class="flex flex-col items-center text-rose-500 font-bold text-[10px]">
+      <i class="fa-solid fa-house text-base mb-0.5"></i>
+      <span>হোম</span>
+    </a>
+    <a href="#products-section" class="flex flex-col items-center text-slate-400 hover:text-rose-500 font-medium text-[10px]">
+      <i class="fa-solid fa-shirt text-base mb-0.5"></i>
+      <span>পোশাক</span>
+    </a>
+    <button onclick="toggleCartDrawer(true)" class="flex flex-col items-center text-slate-400 hover:text-rose-500 font-medium text-[10px] relative">
+      <div class="relative">
+        <i class="fa-solid fa-bag-shopping text-base mb-0.5"></i>
+        <span id="mobileCartBadge" class="absolute -top-1.5 -right-2 bg-rose-500 text-white text-[8px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+      </div>
+      <span>ব্যাগ</span>
+    </button>
+    <button onclick="toggleSizeChart(true)" class="flex flex-col items-center text-slate-400 hover:text-rose-500 font-medium text-[10px]">
+      <i class="fa-solid fa-ruler text-base mb-0.5"></i>
+      <span>সাইজ চার্ট</span>
+    </button>
+  </nav>
+
+  <!-- FIREBASE AUTH SCRIPT -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getAuth, 
+      GoogleAuthProvider, 
+      signInWithPopup, 
+      onAuthStateChanged, 
+      signOut 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // আপনার দেওয়া ফায়ারবেস কনফিগারেশন
+    const firebaseConfig = {
+      apiKey: "AIzaSyAL48GzckthtUMjnVkWXf03vrodz8dWYOo",
+      authDomain: "baby-fashion-store.firebaseapp.com",
+      projectId: "baby-fashion-store",
+      storageBucket: "baby-fashion-store.firebasestorage.app",
+      messagingSenderId: "90340106958",
+      appId: "1:90340106958:web:f58d7891a505a5f700e69f",
+      measurementId: "G-MPTJBPG8S0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const googleLoginBtn = document.getElementById("googleLoginBtn");
+    const userProfile = document.getElementById("userProfile");
+    const userAvatar = document.getElementById("userAvatar");
+    const userName = document.getElementById("userName");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    googleLoginBtn.addEventListener("click", async () => {
+      try {
+        await signInWithPopup(auth, provider);
+      } catch (err) {
+        console.error("Login Error:", err);
+        alert("গুগল লগইন এরর: " + err.message);
+      }
+    });
+
+    logoutBtn.addEventListener("click", async () => {
+      await signOut(auth);
+    });
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        googleLoginBtn.classList.add("hidden");
+        userProfile.classList.remove("hidden");
+        userAvatar.src = user.photoURL || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100";
+        userName.textContent = user.displayName?.split(" ")[0] || "User";
+
+        const custInput = document.getElementById("custName");
+        if (custInput && !custInput.value) {
+          custInput.value = user.displayName || "";
+        }
+      } else {
+        googleLoginBtn.classList.remove("hidden");
+        userProfile.classList.add("hidden");
+      }
+    });
+  </script>
+
+  <!-- STORE LOGIC & WHATSAPP INTEGRATION -->
+  <script>
+    const STORE_WHATSAPP_NUMBER = "8801700000000"; // <-- আপনার মোবাইল/WhatsApp নম্বর দিন
+
+    // রিয়েলিস্টিক বাচ্চাদের ফ্যাশন প্রোডাক্ট তালিকা
+    const catalog = [
+      {
+        id: 1,
+        name: "১০০% প্রিমিয়াম সুতি নিউবর্ন রম্পার সেট",
+        category: "newborn",
+        price: 650,
+        regularPrice: 850,
+        img: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600&auto=format&fit=crop",
+        sizes: ["0-3M", "3-6M", "6-12M"],
+        rating: 5.0,
+        reviews: 42,
+        tag: "টপ ট্রেন্ডিং",
+        stock: "ইন স্টক"
+      },
+      {
+        id: 2,
+        name: "বেবি গার্লস ভিন্টেজ সামার ফ্লোরাল ফ্রক",
+        category: "girls",
+        price: 790,
+        regularPrice: 990,
+        img: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=600&auto=format&fit=crop",
+        sizes: ["6-12M", "1-2Y", "2-4Y", "4-6Y"],
+        rating: 4.9,
+        reviews: 38,
+        tag: "নতুন কালেকশন",
+        stock: "মাত্র ৫টি বাকি"
+      },
+      {
+        id: 3,
+        name: "টডলার বয়েজ প্রিমিয়াম ডাংগ্রি ও টি-শার্ট কম্বো",
+        category: "boys",
+        price: 1050,
+        regularPrice: 1350,
+        img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop",
+        sizes: ["1-2Y", "2-4Y", "4-6Y"],
+        rating: 4.8,
+        reviews: 29,
+        tag: "জনপ্রিয়",
+        stock: "ইন স্টক"
+      },
+      {
+        id: 4,
+        name: "সফট অর্গানিক স্লিপস্যুট উইথ ম্যাচিং ক্যাপ",
+        category: "newborn",
+        price: 690,
+        regularPrice: 890,
+        img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&auto=format&fit=crop",
+        sizes: ["0-3M", "3-6M"],
+        rating: 5.0,
+        reviews: 19,
+        tag: "হাইপোঅ্যালার্জেনিক",
+        stock: "ইন স্টক"
+      },
+      {
+        id: 5,
+        name: "টডলার স্টাইলিশ পোলকা ডট কুর্তি ও প্যান্ট",
+        category: "toddler",
+        price: 890,
+        regularPrice: 1100,
+        img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop",
+        sizes: ["1-2Y", "2-3Y", "3-4Y"],
+        rating: 4.7,
+        reviews: 31,
+        tag: "ধামাকা অফার",
+        stock: "ইন স্টক"
+      },
+      {
+        id: 6,
+        name: "প্রিমিয়াম বয়েজ সেমি-ফরমাল পার্টি শার্ট ও প্যান্ট",
+        category: "boys",
+        price: 1190,
+        regularPrice: 1450,
+        img: "https://images.unsplash.com/photo-1471286174890-9c112ffca56a?w=600&auto=format&fit=crop",
+        sizes: ["2-4Y", "4-6Y", "6-8Y"],
+        rating: 4.9,
+        reviews: 26,
+        tag: "প্রিমিয়াম ফ্যাব্রিক",
+        stock: "ইন স্টক"
+      }
+    ];
+
+    let cart = JSON.parse(localStorage.getItem("spark_cart")) || [];
+    const selectedSizes = {};
+
+    function renderCatalog(items) {
+      const grid = document.getElementById("productGrid");
+      document.getElementById("productCounter").textContent = `${items.length}টি পোশাক`;
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-400">
+            <i class="fa-solid fa-face-frown text-4xl mb-3 text-slate-300"></i>
+            <p class="font-bold text-sm">দুঃখিত, কোনো পোশাক পাওয়া যায়নি!</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = items.map(item => {
+        const discountPercent = Math.round(((item.regularPrice - item.price) / item.regularPrice) * 100);
+        return `
+          <div class="bg-white rounded-3xl p-3 sm:p-4 border border-slate-100 hover:border-rose-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
+            <div>
+              <!-- Image Container -->
+              <div class="relative aspect-square rounded-2xl overflow-hidden bg-slate-100">
+                <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                  <span class="bg-slate-900/80 backdrop-blur-md text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+                    ${item.tag}
+                  </span>
+                </div>
+                <span class="absolute top-2.5 right-2.5 bg-rose-500 text-white text-[10px] font-black px-2 py-0.5 rounded-lg shadow-sm">
+                  -${discountPercent}%
+                </span>
+                <span class="absolute bottom-2 left-2.5 text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/60">
+                  ${item.stock}
+                </span>
+              </div>
+
+              <!-- Product Details -->
+              <div class="mt-3">
+                <div class="flex items-center gap-1 text-amber-400 text-xs">
+                  <i class="fa-solid fa-star text-[11px]"></i>
+                  <span class="text-slate-800 font-black text-xs">${item.rating}</span>
+                  <span class="text-slate-400 text-[10px]">(${item.reviews})</span>
+                </div>
+                <h3 class="text-xs sm:text-sm font-bold text-slate-900 line-clamp-2 mt-1 leading-snug" title="${item.name}">
+                  ${item.name}
+                </h3>
+              </div>
+
+              <!-- Size Picker -->
+              <div class="mt-2.5 pt-2 border-t border-slate-100">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">সাইজ:</span>
+                  <button onclick="toggleSizeChart(true)" class="text-[10px] text-rose-500 hover:underline font-bold">চার্ট দেখুন</button>
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  ${item.sizes.map((sz, idx) => `
+                    <button type="button" onclick="selectItemSize(${item.id}, '${sz}', this)" 
+                            class="sz-btn-${item.id} text-[10px] font-bold px-2 py-1 rounded-lg border transition ${idx === 0 ? 'bg-slate-900 text-white border-slate-900' : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-400'}">
+                      ${sz}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+
+            <!-- Price & Add Button -->
+            <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="text-xs sm:text-base font-black text-slate-900">৳ ${item.price}</span>
+                <span class="text-[10px] text-slate-400 line-through block -mt-0.5">৳ ${item.regularPrice}</span>
+              </div>
+              <button onclick="addToBag(${item.id})" class="bg-rose-500 hover:bg-rose-600 text-white font-bold p-2.5 sm:px-4 sm:py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-md shadow-rose-500/20 hover:shadow-rose-500/35 transition">
+                <i class="fa-solid fa-plus text-xs"></i>
+                <span class="hidden sm:inline">ব্যাগে যোগ</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectItemSize(id, sz, btn) {
+      selectedSizes[id] = sz;
+      document.querySelectorAll(`.sz-btn-${id}`).forEach(b => {
+        b.className = `sz-btn-${id} text-[10px] font-bold px-2 py-1 rounded-lg border transition bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-400`;
+      });
+      btn.className = `sz-btn-${id} text-[10px] font-bold px-2 py-1 rounded-lg border transition bg-slate-900 text-white border-slate-900`;
+    }
+
+    function addToBag(id) {
+      const prod = catalog.find(p => p.id === id);
+      const chosenSize = selectedSizes[id] || prod.sizes[0];
+
+      const exist = cart.find(i => i.id === id && i.size === chosenSize);
+      if (exist) {
+        exist.qty += 1;
+      } else {
+        cart.push({
+          id: prod.id,
+          name: prod.name,
+          price: prod.price,
+          img: prod.img,
+          size: chosenSize,
+          qty: 1
+        });
+      }
+
+      saveCartState();
+      updateCartDisplay();
+      toggleCartDrawer(true);
+    }
+
+    function saveCartState() {
+      localStorage.setItem("spark_cart", JSON.stringify(cart));
+    }
+
+    function updateCartDisplay() {
+      const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+      document.getElementById("cartCountBadge").textContent = totalCount;
+      document.getElementById("mobileCartBadge").textContent = totalCount;
+      document.getElementById("cartDrawerCount").textContent = totalCount;
+
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      document.getElementById("cartSubtotalText").textContent = `৳ ${subtotal}`;
+
+      const list = document.getElementById("cartItemsList");
+      if (cart.length === 0) {
+        list.innerHTML = `
+          <div class="h-64 flex flex-col items-center justify-center text-slate-400 text-center">
+            <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-2xl mb-2 text-slate-300">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </div>
+            <p class="text-xs font-bold text-slate-600">আপনার শপিং ব্যাগ খালি!</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">পছন্দের পোশাকগুলো ব্যাগে যুক্ত করুন</p>
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = cart.map((item, idx) => `
+        <div class="flex items-center gap-3 bg-white p-3 rounded-2xl border border-slate-200/70 shadow-sm">
+          <img src="${item.img}" alt="" class="w-14 h-14 object-cover rounded-xl shrink-0 border">
+          <div class="flex-1 min-w-0">
+            <h4 class="text-xs font-bold text-slate-800 truncate">${item.name}</h4>
+            <span class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md inline-block mt-0.5">সাইজ: ${item.size}</span>
+            <p class="text-xs font-black text-rose-600 mt-1">৳ ${item.price * item.qty}</p>
+          </div>
+          <div class="flex flex-col items-end gap-1.5">
+            <button onclick="removeBagItem(${idx})" class="text-slate-300 hover:text-rose-500 text-xs p-0.5 transition">
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+            <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden text-xs bg-slate-50">
+              <button onclick="alterQty(${idx}, -1)" class="px-2 py-0.5 text-slate-600 hover:bg-slate-200">-</button>
+              <span class="px-2 font-bold text-slate-800">${item.qty}</span>
+              <button onclick="alterQty(${idx}, 1)" class="px-2 py-0.5 text-slate-600 hover:bg-slate-200">+</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function alterQty(idx, val) {
+      cart[idx].qty += val;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      saveCartState();
+      updateCartDisplay();
+    }
+
+    function removeBagItem(idx) {
+      cart.splice(idx, 1);
+      saveCartState();
+      updateCartDisplay();
+    }
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll(".cat-btn").forEach(b => {
+        b.className = "cat-btn bg-white hover:bg-rose-50 border border-slate-200/80 text-slate-700 rounded-2xl p-3.5 text-center transition flex flex-col items-center gap-2";
+      });
+      btn.className = "cat-btn active bg-slate-900 text-white rounded-2xl p-3.5 text-center transition flex flex-col items-center gap-2 shadow-sm";
+
+      if (cat === "all") {
+        renderCatalog(catalog);
+      } else {
+        const filtered = catalog.filter(p => p.category === cat);
+        renderCatalog(filtered);
+      }
+    }
+
+    function searchCatalog(str) {
+      const q = str.toLowerCase().trim();
+      const filtered = catalog.filter(p => 
+        p.name.toLowerCase().includes(q) || 
+        p.category.toLowerCase().includes(q) ||
+        p.sizes.some(s => s.toLowerCase().includes(q))
+      );
+      renderCatalog(filtered);
+    }
+
+    document.getElementById("searchInput").addEventListener("input", (e) => searchCatalog(e.target.value));
+    document.getElementById("mobileSearchInput").addEventListener("input", (e) => searchCatalog(e.target.value));
+
+    function toggleCartDrawer(show) {
+      const drawer = document.getElementById("cartDrawer");
+      const backdrop = document.getElementById("cartBackdrop");
+      if (show) {
+        backdrop.classList.remove("hidden");
+        drawer.classList.remove("translate-x-full");
+      } else {
+        backdrop.classList.add("hidden");
+        drawer.classList.add("translate-x-full");
+      }
+    }
+
+    function toggleSizeChart(show) {
+      const modal = document.getElementById("sizeChartModal");
+      modal.classList.toggle("hidden", !show);
+    }
+
+    function openCheckoutModal() {
+      if (cart.length === 0) {
+        alert("আপনার শপিং ব্যাগে কোনো পোশাক নেই!");
+        return;
+      }
+      toggleCartDrawer(false);
+      calculateOrderTotal();
+      document.getElementById("checkoutModal").classList.remove("hidden");
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById("checkoutModal").classList.add("hidden");
+    }
+
+    function calculateOrderTotal() {
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const delivery = parseInt(document.getElementById("deliveryZone").value) || 60;
+      const finalTotal = subtotal + delivery;
+
+      document.getElementById("modalSubtotal").textContent = `৳ ${subtotal}`;
+      document.getElementById("modalDelivery").textContent = `৳ ${delivery}`;
+      document.getElementById("modalFinalTotal").textContent = `৳ ${finalTotal}`;
+    }
+
+    function handlePlaceOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById("custName").value;
+      const phone = document.getElementById("custPhone").value;
+      const address = document.getElementById("custAddress").value;
+      const deliveryCharge = parseInt(document.getElementById("deliveryZone").value);
+      const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      const total = subtotal + deliveryCharge;
+
+      let msg = `👶 *নতুন বেবি ড্রেস অর্ডার — TinySparks®*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `👤 *গ্রাহকের নাম:* ${name}\n`;
+      msg += `📞 *মোবাইল নম্বর:* ${phone}\n`;
+      msg += `📍 *ডেলিভারি ঠিকানা:* ${address}\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `🛍️ *অর্ডারকৃত পোশাকসমূহ:*\n`;
+
+      cart.forEach((item, idx) => {
+        msg += `${idx + 1}. ${item.name}\n   └ সাইজ: ${item.size} | পরিমাণ: ${item.qty} পিস | মূল্য: ৳${item.price * item.qty}\n`;
+      });
+
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `💵 *পণ্যের মোট মূল্য:* ৳ ${subtotal}\n`;
+      msg += `🚚 *ডেলিভারি চার্জ:* ৳ ${deliveryCharge}\n`;
+      msg += `💰 *সর্বমোট বিল:* ৳ ${total} (ক্যাশ অন ডেলিভারি)\n`;
+
+      const encoded = encodeURIComponent(msg);
+      const url = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encoded}`;
+
+      cart = [];
+      saveCartState();
+      updateCartDisplay();
+      closeCheckoutModal();
+
+      window.open(url, "_blank");
+    }
+
+    // First render
+    renderCatalog(catalog);
+    updateCartDisplay();
+  </script>
+</body>
+</html>
+
