@@ -90,14 +90,14 @@
       <!-- Header Actions -->
       <div class="flex items-center gap-2 sm:gap-2.5">
         
-        <!-- ADMIN PANEL BUTTON (Always accessible or when logged in) -->
-        <button onclick="openAdminPanel()" id="adminHeaderBtn" class="flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-xs font-bold px-3 sm:px-3.5 py-2 rounded-full shadow-sm transition">
+        <!-- SECURE ADMIN BUTTON (HIDDEN BY DEFAULT - ONLY APPEARS IF marufclaud@gmail.com LOGGED IN) -->
+        <button onclick="openAdminPanel()" id="adminHeaderBtn" class="hidden flex items-center gap-1.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-xs font-bold px-3 sm:px-3.5 py-2 rounded-full shadow-sm transition">
           <i class="fa-solid fa-crown text-xs"></i>
           <span>অ্যাডমিন প্যানেল</span>
         </button>
 
         <!-- Size Chart Trigger -->
-        <button onclick="openSizeModal()" class="hidden sm:flex items-center gap-1.5 bg-baby-pastelYellow hover:bg-yellow-200 text-amber-800 text-xs font-bold px-3 py-2 rounded-full border border-amber-200 transition">
+        <button onclick="openSizeModal()" class="hidden sm:flex items-center gap-1.5 bg-baby-pastelYellow hover:bg-yellow-200 text-amber-800 text-xs font-bold px-3.5 py-2 rounded-full border border-amber-200 transition">
           <i class="fa-solid fa-ruler-combined text-amber-600"></i>
           <span>সাইজ চার্ট</span>
         </button>
@@ -149,7 +149,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center relative z-10">
         
-        <!-- Left Banner Info -->
         <div class="md:col-span-7 text-center md:text-left space-y-3.5">
           <div class="inline-flex items-center gap-2 bg-white/90 border border-pink-200 px-3 py-1 rounded-full shadow-sm text-xs font-bold text-baby-coral">
             <span>✨</span>
@@ -177,7 +176,6 @@
           </div>
         </div>
 
-        <!-- Right Banner Image -->
         <div class="md:col-span-5 flex justify-center">
           <div class="relative w-64 h-64 sm:w-72 sm:h-72">
             <div class="w-full h-full rounded-3xl overflow-hidden border-4 border-white shadow-xl bg-white rotate-2 hover:rotate-0 transition duration-300">
@@ -197,7 +195,7 @@
       </div>
     </section>
 
-    <!-- CIRCULAR STORY-STYLE CATEGORIES -->
+    <!-- CIRCULAR CATEGORIES -->
     <section>
       <div class="flex items-center justify-between mb-3 px-1">
         <h2 class="text-base sm:text-lg font-black text-slate-800 flex items-center gap-1.5">
@@ -267,11 +265,10 @@
           <p class="text-xs text-slate-500">সেরা মানের আরামদায়ক ডিজাইন</p>
         </div>
         <span id="productCounter" class="text-xs font-bold text-slate-500 bg-white px-3 py-1 rounded-full border border-slate-200">
-          ৬টি পোশাক
+          লোড হচ্ছে...
         </span>
       </div>
 
-      <!-- Grid -->
       <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
         <!-- Rendered by JS -->
       </div>
@@ -316,8 +313,8 @@
             👑
           </div>
           <div>
-            <h3 class="text-base sm:text-lg font-black text-slate-800">TinySparks শপ অ্যাডমিন ড্যাশবোর্ড</h3>
-            <p class="text-[11px] text-slate-500">নতুন পোশাক যোগ করুন, ডিলিট করুন অথবা WhatsApp নম্বর পরিবর্তন করুন</p>
+            <h3 class="text-base sm:text-lg font-black text-slate-800">TinySparks সিকিউর অ্যাডমিন প্যানেল</h3>
+            <p class="text-[11px] text-slate-500">লগইন অ্যাডমিন: <b class="text-amber-600">marufclaud@gmail.com</b></p>
           </div>
         </div>
         <button onclick="closeAdminPanel()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 hover:text-slate-700 flex items-center justify-center text-sm transition">
@@ -338,7 +335,7 @@
         </button>
       </div>
 
-      <!-- Tab Content Area (Scrollable) -->
+      <!-- Tab Content Area -->
       <div class="flex-1 overflow-y-auto py-3 space-y-4">
         
         <!-- Tab 1: Add Product Form -->
@@ -387,12 +384,12 @@
 
             <div>
               <label class="block font-bold text-slate-700 mb-1">ছবির ওয়েব লিংক (Image URL) *</label>
-              <input type="url" id="newProdImg" required placeholder="https://images.unsplash.com/... বা যেকোনো ইমেজের লিংক" 
+              <input type="url" id="newProdImg" required placeholder="https://images.unsplash.com/... বা যেকোনো ছবির লিংক" 
                      class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:bg-white focus:outline-none focus:border-amber-500" />
               <div class="flex gap-2 mt-1.5">
-                <button type="button" onclick="setSampleImg(1)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ছবি ১</button>
-                <button type="button" onclick="setSampleImg(2)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ছবি ২</button>
-                <button type="button" onclick="setSampleImg(3)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ছবি ৩</button>
+                <button type="button" onclick="setSampleImg(1)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ১</button>
+                <button type="button" onclick="setSampleImg(2)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ২</button>
+                <button type="button" onclick="setSampleImg(3)" class="text-[10px] bg-slate-100 px-2 py-0.5 rounded hover:bg-slate-200">স্যাম্পল ৩</button>
               </div>
             </div>
 
@@ -420,9 +417,9 @@
               </div>
             </div>
 
-            <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black py-3 rounded-xl shadow transition text-xs flex items-center justify-center gap-2">
-              <i class="fa-solid fa-plus"></i>
-              <span>স্টোরে নতুন পোশাকটি যুক্ত করুন</span>
+            <button type="submit" id="adminSaveBtn" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-black py-3 rounded-xl shadow transition text-xs flex items-center justify-center gap-2">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>ক্লাউড ডাটাবেজে নতুন পোশাক সেভ করুন</span>
             </button>
           </form>
         </div>
@@ -431,7 +428,6 @@
         <div id="adminTabList" class="hidden space-y-2 text-xs">
           <div class="flex justify-between items-center mb-2">
             <span class="font-bold text-slate-700">বর্তমান পোশাকসমূহ:</span>
-            <button onclick="resetDefaultProducts()" class="text-[11px] text-red-500 hover:underline">রিসেট করে ডিফল্ট করুন</button>
           </div>
           <div id="adminProductsTable" class="space-y-2">
             <!-- Rendered by JS -->
@@ -496,7 +492,7 @@
     </div>
   </aside>
 
-  <!-- CHECKOUT MODAL (WhatsApp Direct Order) -->
+  <!-- CHECKOUT MODAL -->
   <div id="checkoutModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 relative shadow-2xl border border-pink-100 max-h-[90vh] overflow-y-auto">
       <button onclick="closeCheckoutModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600 p-1">
@@ -630,7 +626,7 @@
     </div>
   </div>
 
-  <!-- FLOATING BOTTOM BAR (Mobile) -->
+  <!-- FLOATING MOBILE BOTTOM BAR -->
   <nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-pink-100 py-2 px-6 flex justify-around items-center z-40 md:hidden shadow-lg">
     <a href="#" class="flex flex-col items-center text-baby-coral font-bold text-[10px]">
       <i class="fa-solid fa-house text-base"></i>
@@ -647,13 +643,14 @@
       </div>
       <span>ব্যাগ</span>
     </button>
-    <button onclick="openAdminPanel()" class="flex flex-col items-center text-amber-500 font-bold text-[10px]">
+    <!-- Hidden for public, only visible if admin -->
+    <button onclick="openAdminPanel()" id="adminMobileBtn" class="hidden flex flex-col items-center text-amber-500 font-bold text-[10px]">
       <i class="fa-solid fa-crown text-base"></i>
       <span>অ্যাডমিন</span>
     </button>
   </nav>
 
-  <!-- FIREBASE AUTH SCRIPT -->
+  <!-- FIREBASE AUTH & FIRESTORE INTEGRATION -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { 
@@ -663,6 +660,14 @@
       onAuthStateChanged, 
       signOut 
     } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      addDoc,
+      deleteDoc,
+      doc
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyAL48GzckthtUMjnVkWXf03vrodz8dWYOo",
@@ -676,13 +681,20 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    const db = getFirestore(app);
     const provider = new GoogleAuthProvider();
+
+    // STRICT ADMIN EMAIL
+    const ADMIN_EMAIL = "marufclaud@gmail.com";
+    window.currentUser = null;
 
     const googleLoginBtn = document.getElementById("googleLoginBtn");
     const userProfile = document.getElementById("userProfile");
     const userAvatar = document.getElementById("userAvatar");
     const userName = document.getElementById("userName");
     const logoutBtn = document.getElementById("logoutBtn");
+    const adminHeaderBtn = document.getElementById("adminHeaderBtn");
+    const adminMobileBtn = document.getElementById("adminMobileBtn");
 
     googleLoginBtn.addEventListener("click", async () => {
       try {
@@ -697,7 +709,9 @@
       await signOut(auth);
     });
 
+    // AUTH STATE LISTENER
     onAuthStateChanged(auth, (user) => {
+      window.currentUser = user;
       if (user) {
         googleLoginBtn.classList.add("hidden");
         userProfile.classList.remove("hidden");
@@ -708,17 +722,99 @@
         if (custInput && !custInput.value) {
           custInput.value = user.displayName || "";
         }
+
+        // কঠোর সিকিউরিটি চেক: শুধুমাত্র marufclaud@gmail.com হলে অ্যাডমিন বাটন দৃশ্যমান হবে!
+        if (user.email === ADMIN_EMAIL) {
+          adminHeaderBtn.classList.remove("hidden");
+          if (adminMobileBtn) adminMobileBtn.classList.remove("hidden");
+        } else {
+          adminHeaderBtn.classList.add("hidden");
+          if (adminMobileBtn) adminMobileBtn.classList.add("hidden");
+        }
       } else {
+        // লগআউট থাকলে অ্যাডমিন বাটন সম্পূর্ণ লুকানো
+        adminHeaderBtn.classList.add("hidden");
+        if (adminMobileBtn) adminMobileBtn.classList.add("hidden");
         googleLoginBtn.classList.remove("hidden");
         userProfile.classList.add("hidden");
       }
     });
+
+    // FIRESTORE PRODUCTS LOADING & SYNC
+    window.loadFirestoreProducts = async function() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "products"));
+        if (!querySnapshot.empty) {
+          const loaded = [];
+          querySnapshot.forEach((docSnap) => {
+            loaded.push({ docId: docSnap.id, ...docSnap.data() });
+          });
+          window.products = loaded;
+        } else {
+          // প্রথমবার ডাটাবেজ খালি থাকলে ডিফল্টগুলো লোড হবে
+          window.products = [...window.DEFAULT_PRODUCTS];
+        }
+      } catch (e) {
+        console.warn("Using local defaults:", e);
+        window.products = JSON.parse(localStorage.getItem("tinysparks_store_products")) || [...window.DEFAULT_PRODUCTS];
+      }
+      window.renderProducts(window.products);
+      window.renderAdminInventory();
+    };
+
+    // FIRESTORE ADD PRODUCT (SERVER-VERIFIED)
+    window.saveProductToFirestore = async function(prodData) {
+      if (!window.currentUser || window.currentUser.email !== ADMIN_EMAIL) {
+        alert("অননুমোদিত! শুধুমাত্র অ্যাডমিন ডাটাবেজে প্রোডাক্ট যোগ করতে পারবে।");
+        return false;
+      }
+      try {
+        const docRef = await addDoc(collection(db, "products"), prodData);
+        prodData.docId = docRef.id;
+        window.products.unshift(prodData);
+        window.saveStoreProducts();
+        window.renderProducts(window.products);
+        window.renderAdminInventory();
+        return true;
+      } catch (err) {
+        console.error("Firestore Add Error:", err);
+        alert("ডাটাবেজে সেভ করতে সমস্যা হয়েছে: " + err.message);
+        return false;
+      }
+    };
+
+    // FIRESTORE DELETE PRODUCT (SERVER-VERIFIED)
+    window.deleteProductFromFirestore = async function(id, docId) {
+      if (!window.currentUser || window.currentUser.email !== ADMIN_EMAIL) {
+        alert("অননুমোদিত! শুধুমাত্র অ্যাডমিন প্রোডাক্ট মুছতে পারবে।");
+        return;
+      }
+      if (confirm("আপনি কি নিশ্চিত এই পোশাকটি স্থায়ীভাবে ক্লাউড ডাটাবেজ থেকে মুছে ফেলতে চান?")) {
+        try {
+          if (docId) {
+            await deleteDoc(doc(db, "products", docId));
+          }
+          window.products = window.products.filter(p => p.id !== id);
+          window.saveStoreProducts();
+          window.renderProducts(window.products);
+          window.renderAdminInventory();
+          alert("পোশাকটি ডাটাবেজ থেকে মুছে ফেলা হয়েছে!");
+        } catch (err) {
+          console.error("Firestore Delete Error:", err);
+          alert("মুছতে সমস্যা হয়েছে: " + err.message);
+        }
+      }
+    };
+
+    // সাইট লোড হলেই ক্লাউড থেকে প্রোডাক্ট আনবে
+    window.loadFirestoreProducts();
   </script>
 
-  <!-- STORE & CART & ADMIN LOGIC -->
+  <!-- STORE & CART & UI LOGIC -->
   <script>
-    // ডিফল্ট প্রোডাক্ট তালিকা
-    const DEFAULT_PRODUCTS = [
+    const ADMIN_EMAIL = "marufclaud@gmail.com";
+
+    window.DEFAULT_PRODUCTS = [
       {
         id: 1,
         title: "১০০% প্রিমিয়াম সুতি নিউবর্ন রম্পার সেট",
@@ -799,13 +895,12 @@
       }
     ];
 
-    // লোকাল স্টোরেজ থেকে প্রোডাক্ট ও সেটিংস লোড
-    let products = JSON.parse(localStorage.getItem("tinysparks_store_products")) || DEFAULT_PRODUCTS;
+    window.products = [...window.DEFAULT_PRODUCTS];
     let storeWhatsapp = localStorage.getItem("tinysparks_store_whatsapp") || "8801700000000";
     let cart = JSON.parse(localStorage.getItem("tinysparks_cart")) || [];
     const chosenSizeMap = {};
 
-    function renderProducts(items) {
+    window.renderProducts = function(items) {
       const grid = document.getElementById("productGrid");
       document.getElementById("productCounter").textContent = `${items.length}টি পোশাক`;
 
@@ -869,7 +964,7 @@
           </div>
         `;
       }).join('');
-    }
+    };
 
     function selectCardSize(id, sz, btn) {
       chosenSizeMap[id] = sz;
@@ -880,7 +975,7 @@
     }
 
     function addToCart(id) {
-      const prod = products.find(p => p.id === id);
+      const prod = window.products.find(p => p.id === id);
       const chosenSize = chosenSizeMap[id] || prod.sizes[0];
 
       const exists = cart.find(i => i.id === id && i.size === chosenSize);
@@ -971,21 +1066,21 @@
       btn.querySelector(".rounded-full").className = "w-16 h-16 sm:w-20 sm:h-20 rounded-full p-[2.5px] story-ring transition group-hover:scale-105";
 
       if (cat === "all") {
-        renderProducts(products);
+        window.renderProducts(window.products);
       } else {
-        const filtered = products.filter(p => p.category === cat);
-        renderProducts(filtered);
+        const filtered = window.products.filter(p => p.category === cat);
+        window.renderProducts(filtered);
       }
     }
 
     function searchProducts(term) {
       const q = term.toLowerCase().trim();
-      const filtered = products.filter(p => 
+      const filtered = window.products.filter(p => 
         p.title.toLowerCase().includes(q) || 
         p.category.toLowerCase().includes(q) ||
         p.sizes.some(s => s.toLowerCase().includes(q))
       );
-      renderProducts(filtered);
+      window.renderProducts(filtered);
     }
 
     document.getElementById("desktopSearch").addEventListener("input", (e) => searchProducts(e.target.value));
@@ -1072,18 +1167,22 @@
       window.open(url, "_blank");
     }
 
-    // ==================== ADMIN PANEL FUNCTIONS ====================
-    function openAdminPanel() {
+    // ==================== ADMIN PANEL SECURE CONTROLLER ====================
+    window.openAdminPanel = function() {
+      if (!window.currentUser || window.currentUser.email !== ADMIN_EMAIL) {
+        alert("⛔ এক্সেস ডিনাইড! শুধুমাত্র অনুমোদিত অ্যাডমিন (marufclaud@gmail.com) এই প্যানেলে প্রবেশ করতে পারবেন।");
+        return;
+      }
       document.getElementById("adminPanelModal").classList.remove("hidden");
       document.getElementById("adminSettingWhatsapp").value = storeWhatsapp;
-      renderAdminInventory();
-    }
+      window.renderAdminInventory();
+    };
 
-    function closeAdminPanel() {
+    window.closeAdminPanel = function() {
       document.getElementById("adminPanelModal").classList.add("hidden");
-    }
+    };
 
-    function switchAdminTab(tab) {
+    window.switchAdminTab = function(tab) {
       document.getElementById("adminTabAdd").classList.toggle("hidden", tab !== 'add');
       document.getElementById("adminTabList").classList.toggle("hidden", tab !== 'list');
       document.getElementById("adminTabSettings").classList.toggle("hidden", tab !== 'settings');
@@ -1093,20 +1192,20 @@
       document.getElementById("tabSettingsBtn").className = tab === 'settings' ? 'px-3.5 py-1.5 rounded-xl bg-amber-500 text-white transition' : 'px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition';
 
       if (tab === 'list') {
-        renderAdminInventory();
+        window.renderAdminInventory();
       }
-    }
+    };
 
-    function setSampleImg(type) {
+    window.setSampleImg = function(type) {
       const samples = {
         1: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600&auto=format&fit=crop",
         2: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=600&auto=format&fit=crop",
         3: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop"
       };
       document.getElementById("newProdImg").value = samples[type] || "";
-    }
+    };
 
-    function handleAdminAddProduct(e) {
+    window.handleAdminAddProduct = async function(e) {
       e.preventDefault();
       const title = document.getElementById("newProdTitle").value.trim();
       const category = document.getElementById("newProdCategory").value;
@@ -1139,26 +1238,31 @@
         tagColor: "bg-amber-500"
       };
 
-      products.unshift(newProduct);
-      saveStoreProducts();
-      renderProducts(products);
-      renderAdminInventory();
+      const btn = document.getElementById("adminSaveBtn");
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>ডাটাবেজে সেভ হচ্ছে...</span>`;
+      btn.disabled = true;
 
-      alert("🎉 নতুন পোশাক সফলভাবে স্টোরে যুক্ত করা হয়েছে!");
-      e.target.reset();
-      switchAdminTab('list');
-    }
+      const success = await window.saveProductToFirestore(newProduct);
+      btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> <span>ক্লাউড ডাটাবেজে নতুন পোশাক সেভ করুন</span>`;
+      btn.disabled = false;
 
-    function renderAdminInventory() {
-      document.getElementById("adminListCount").textContent = products.length;
+      if (success) {
+        alert("🎉 নতুন পোশাক সফলভাবে ক্লাউড ডাটাবেজে সংরক্ষিত হয়েছে!");
+        e.target.reset();
+        window.switchAdminTab('list');
+      }
+    };
+
+    window.renderAdminInventory = function() {
+      document.getElementById("adminListCount").textContent = window.products.length;
       const container = document.getElementById("adminProductsTable");
       
-      if (products.length === 0) {
+      if (window.products.length === 0) {
         container.innerHTML = `<p class="text-slate-400 text-center py-6">কোনো পোশাক নেই</p>`;
         return;
       }
 
-      container.innerHTML = products.map((item, idx) => `
+      container.innerHTML = window.products.map((item, idx) => `
         <div class="flex items-center justify-between gap-3 p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
           <img src="${item.img}" class="w-12 h-12 object-cover rounded-lg border shrink-0">
           <div class="flex-1 min-w-0">
@@ -1169,37 +1273,18 @@
               <span>সাইজ: ${item.sizes.join(', ')}</span>
             </div>
           </div>
-          <button onclick="adminDeleteProduct(${item.id})" class="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded-lg text-xs font-bold transition">
+          <button onclick="window.deleteProductFromFirestore(${item.id}, '${item.docId || ''}')" class="text-red-500 hover:text-red-700 bg-red-50 hover:bg-red-100 p-2 rounded-lg text-xs font-bold transition">
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>
       `).join('');
-    }
+    };
 
-    function adminDeleteProduct(id) {
-      if (confirm("আপনি কি নিশ্চিত এই পোশাকটি স্টোর থেকে মুছে ফেলতে চান?")) {
-        products = products.filter(p => p.id !== id);
-        saveStoreProducts();
-        renderProducts(products);
-        renderAdminInventory();
-      }
-    }
+    window.saveStoreProducts = function() {
+      localStorage.setItem("tinysparks_store_products", JSON.stringify(window.products));
+    };
 
-    function resetDefaultProducts() {
-      if (confirm("আপনি কি সব প্রোডাক্ট রিসেট করে আগের ডিফল্ট ৬টি প্রোডাক্ট ফিরিয়ে আনতে চান?")) {
-        products = [...DEFAULT_PRODUCTS];
-        saveStoreProducts();
-        renderProducts(products);
-        renderAdminInventory();
-        alert("স্টোর রিসেট সফল হয়েছে!");
-      }
-    }
-
-    function saveStoreProducts() {
-      localStorage.setItem("tinysparks_store_products", JSON.stringify(products));
-    }
-
-    function saveAdminSettings() {
+    window.saveAdminSettings = function() {
       const wp = document.getElementById("adminSettingWhatsapp").value.trim();
       if (!wp) {
         alert("দয়া করে WhatsApp নম্বর দিন");
@@ -1208,11 +1293,10 @@
       storeWhatsapp = wp;
       localStorage.setItem("tinysparks_store_whatsapp", storeWhatsapp);
       alert("✅ WhatsApp নম্বর সফলভাবে সংরক্ষণ করা হয়েছে!");
-      closeAdminPanel();
-    }
+      window.closeAdminPanel();
+    };
 
-    // Init
-    renderProducts(products);
+    // Initial render
     updateCartUI();
   </script>
 </body>
