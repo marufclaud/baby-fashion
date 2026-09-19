@@ -848,86 +848,7 @@
     const ADMIN_EMAIL = "marufclaud@gmail.com";
 
     // ডিফল্ট প্রোডাক্ট তালিকা
-    window.DEFAULT_PRODUCTS = [
-      {
-        id: 1,
-        title: "১০০% প্রিমিয়াম সুতি নিউবর্ন রম্পার সেট",
-        category: "newborn",
-        price: 590,
-        originalPrice: 790,
-        img: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600&auto=format&fit=crop",
-        sizes: ["0-3M", "3-6M", "6-12M"],
-        rating: 5.0,
-        reviews: 48,
-        badge: "টপ সেলিং 🔥",
-        tagColor: "bg-rose-500"
-      },
-      {
-        id: 2,
-        title: "কিউট প্রিন্সেস সামার ফ্লোরাল ফ্রক",
-        category: "girls",
-        price: 750,
-        originalPrice: 950,
-        img: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=600&auto=format&fit=crop",
-        sizes: ["6-12M", "1-2Y", "2-4Y", "4-6Y"],
-        rating: 4.9,
-        reviews: 35,
-        badge: "নতুন কালেকশন ✨",
-        tagColor: "bg-pink-500"
-      },
-      {
-        id: 3,
-        title: "বয়েজ ডেনিম ডাংগ্রি ও সফট টি-শার্ট সেট",
-        category: "boys",
-        price: 990,
-        originalPrice: 1290,
-        img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop",
-        sizes: ["1-2Y", "2-4Y", "4-6Y"],
-        rating: 4.8,
-        reviews: 28,
-        badge: "সেরা পছন্দ 👍",
-        tagColor: "bg-blue-500"
-      },
-      {
-        id: 4,
-        title: "সফট অর্গানিক স্লিপস্যুট উইথ ম্যাচিং ক্যাপ",
-        category: "newborn",
-        price: 650,
-        originalPrice: 850,
-        img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&auto=format&fit=crop",
-        sizes: ["0-3M", "3-6M"],
-        rating: 5.0,
-        reviews: 22,
-        badge: "হাইপোঅ্যালার্জেনিক 🌿",
-        tagColor: "bg-emerald-500"
-      },
-      {
-        id: 5,
-        title: "টডলার কিউট পোলকা ডট কুর্তি ও প্যান্ট",
-        category: "toddler",
-        price: 850,
-        originalPrice: 1100,
-        img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop",
-        sizes: ["1-2Y", "2-3Y", "3-4Y"],
-        rating: 4.7,
-        reviews: 31,
-        badge: "অফার ডিল 🏷️",
-        tagColor: "bg-amber-500"
-      },
-      {
-        id: 6,
-        title: "বয়েজ স্টাইলিশ পার্টি শার্ট ও ক্যাজুয়াল প্যান্ট",
-        category: "boys",
-        price: 1150,
-        originalPrice: 1450,
-        img: "https://images.unsplash.com/photo-1471286174890-9c112ffca56a?w=600&auto=format&fit=crop",
-        sizes: ["2-4Y", "4-6Y", "6-8Y"],
-        rating: 4.9,
-        reviews: 20,
-        badge: "প্রিমিয়াম কোয়ালিটি 👑",
-        tagColor: "bg-purple-500"
-      }
-    ];
+    window.DEFAULT_PRODUCTS = [];
 
     window.products = [...window.DEFAULT_PRODUCTS];
 
@@ -944,6 +865,7 @@
       ]
     };
 
+    localStorage.removeItem("tinysparks_store_products");
     let cart = JSON.parse(localStorage.getItem("tinysparks_cart")) || [];
     const chosenSizeMap = {};
     let tempProductBase64 = "";
@@ -995,7 +917,18 @@
       document.getElementById("productCounter").textContent = `${items.length}টি পোশাক`;
 
       if (items.length === 0) {
-        grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-400 font-bold">কোনো পোশাক খুঁজে পাওয়া যায়নি!</div>`;
+        grid.innerHTML = `<div class="col-span-full py-20 text-center space-y-3 bg-white rounded-3xl border border-pink-100 p-8 shadow-sm">
+          <div class="w-16 h-16 bg-pink-100 text-baby-coral rounded-full flex items-center justify-center text-3xl mx-auto shadow-sm">
+            🛍️
+          </div>
+          <h3 class="text-base sm:text-lg font-black text-slate-800">বর্তমানে কোনো পোশাক নেই</h3>
+          <p class="text-xs text-slate-500 max-w-sm mx-auto">খুব শীঘ্রই আমাদের নতুন প্রিমিয়াম বেবি কালেকশন যুক্ত করা হচ্ছে!</p>
+          ${window.currentUser && window.currentUser.email === ADMIN_EMAIL ? `
+            <button onclick="openAdminPanel()" class="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-sm transition mt-2">
+              <i class="fa-solid fa-plus"></i> অ্যাডমিন প্যানেল থেকে পোশাক যোগ করুন
+            </button>
+          ` : ''}
+        </div>`;
         return;
       }
 
@@ -1419,7 +1352,7 @@
       const container = document.getElementById("adminProductsTable");
       
       if (window.products.length === 0) {
-        container.innerHTML = `<p class="text-slate-400 text-center py-6">কোনো পোশাক নেই</p>`;
+        container.innerHTML = `<p class="text-slate-400 text-center py-6 font-bold">কোনো পোশাক আপলোড করা হয়নি। "নতুন পোশাক যোগ" ট্যাব থেকে প্রথম পোশাকটি আপলোড করুন।</p>`;
         return;
       }
 
