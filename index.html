@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TinySparks | কিউট ও আরামদায়ক শিশুদের পোশাক</title>
+  <title>Baby's Outfits | কিউট ও প্রিমিয়াম শিশুদের পোশাক</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -68,15 +68,15 @@
       
       <!-- Logo -->
       <a href="#" class="flex items-center gap-2.5 shrink-0 group">
-        <div class="w-11 h-11 rounded-2xl bg-baby-softPink border border-pink-200 flex items-center justify-center text-baby-coral text-2xl group-hover:rotate-12 transition duration-300 shadow-sm">
-          🧸
+        <div class="w-11 h-11 rounded-2xl overflow-hidden border border-pink-200 shadow-sm bg-baby-softPink flex items-center justify-center group-hover:scale-105 transition duration-300">
+          <img id="brandLogoImg" src="logo.png" alt="Baby's Outfits" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522771930-78848d9293e8?w=100';">
         </div>
         <div>
           <div class="flex items-center gap-1">
-            <span class="text-2xl font-black tracking-tight text-baby-coral">Tiny</span>
-            <span class="text-2xl font-black tracking-tight text-amber-500">Sparks</span>
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-baby-coral">Baby's</span>
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-amber-500">Outfits</span>
           </div>
-          <p class="text-[10px] font-bold tracking-widest text-slate-400 uppercase -mt-1">BABY & KIDS STORE</p>
+          <p class="text-[9px] font-bold tracking-widest text-slate-400 uppercase -mt-0.5">KIDS & BABY FASHION</p>
         </div>
       </a>
 
@@ -269,7 +269,7 @@
             👑
           </div>
           <div>
-            <h3 class="text-base sm:text-lg font-black text-slate-800">TinySparks সিকিউর অ্যাডমিন প্যানেল</h3>
+            <h3 class="text-base sm:text-lg font-black text-slate-800">Baby's Outfits সিকিউর অ্যাডমিন প্যানেল</h3>
             <p class="text-[11px] text-slate-500">লগইন অ্যাডমিন: <b class="text-amber-600">marufclaud@gmail.com</b></p>
           </div>
         </div>
@@ -408,6 +408,23 @@
         <!-- Tab 3: Shop & Banner Settings (Categories & Hero Customization) -->
         <div id="adminTabSettings" class="hidden space-y-4 text-xs">
           
+          <!-- LOGO UPLOADER -->
+          <div class="bg-amber-50/60 p-3.5 rounded-2xl border border-amber-200 space-y-2.5">
+            <h4 class="font-black text-slate-800 text-sm flex items-center gap-1.5">
+              <span>🏷️</span> দোকানের লোগো পরিবর্তন (Logo Upload)
+            </h4>
+            <div class="flex items-center gap-3">
+              <img id="settingsLogoPreview" src="logo.png" class="w-14 h-14 object-cover rounded-2xl border-2 border-amber-300 shadow-sm shrink-0 bg-white" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522771930-78848d9293e8?w=100';" />
+              <div class="flex-1 space-y-1">
+                <label class="inline-block bg-white hover:bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl font-bold text-slate-700 cursor-pointer shadow-sm text-xs">
+                  <i class="fa-solid fa-camera text-amber-500 mr-1"></i> নতুন লোগো ছবি বেছে নিন
+                  <input type="file" accept="image/*" class="hidden" onchange="handleLogoUpload(event)" />
+                </label>
+                <p class="text-[10px] text-slate-400">আপনার পছন্দের লোগো সিলেক্ট করে নিচে সেভ করুন।</p>
+              </div>
+            </div>
+          </div>
+
           <!-- HERO BANNER IMAGE CUSTOMIZER -->
           <div class="bg-pink-50/60 p-3.5 rounded-2xl border border-pink-200 space-y-2.5">
             <h4 class="font-black text-slate-800 text-sm flex items-center gap-1.5">
@@ -857,11 +874,11 @@
       heroBannerImg: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=800&auto=format&fit=crop",
       storeWhatsapp: "8801700000000",
       categories: [
-        { id: "all", name: "সব কালেকশন", sub: "", icon: "✨", img: "" },
-        { id: "newborn", name: "Newborn", sub: "০–১২ মাস", icon: "👶", img: "" },
-        { id: "toddler", name: "Toddler", sub: "১–৩ বছর", icon: "🧸", img: "" },
-        { id: "boys", name: "Boys", sub: "৩–৮ বছর", icon: "👦", img: "" },
-        { id: "girls", name: "Girls", sub: "৩–৮ বছর", icon: "👧", img: "" }
+        { id: "all", name: "সব কালেকশন", sub: "", icon: "✨", img: "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=300&auto=format&fit=crop" },
+        { id: "newborn", name: "Newborn", sub: "০–১২ মাস", icon: "👶", img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=300&auto=format&fit=crop" },
+        { id: "toddler", name: "Toddler", sub: "১–৩ বছর", icon: "🧸", img: "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=300&auto=format&fit=crop" },
+        { id: "boys", name: "Boys", sub: "৩–৮ বছর", icon: "👦", img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&auto=format&fit=crop" },
+        { id: "girls", name: "Girls", sub: "৩–৮ বছর", icon: "👧", img: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=300&auto=format&fit=crop" }
       ]
     };
 
@@ -874,6 +891,11 @@
     // APPLY STORE CONFIG (Hero Banner & Categories)
     window.applyStoreConfig = function(cfg) {
       if (!cfg) return;
+      if (cfg.logoImg) {
+        const logo = document.getElementById("brandLogoImg");
+        if (logo) logo.src = cfg.logoImg;
+        window.storeConfig.logoImg = cfg.logoImg;
+      }
       if (cfg.heroBannerImg) {
         document.getElementById("heroBannerImg").src = cfg.heroBannerImg;
         document.getElementById("settingsHeroPreview").src = cfg.heroBannerImg;
@@ -1162,7 +1184,7 @@
       const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
       const total = subtotal + delivery;
 
-      let msg = `👶 *নতুন বেবি ড্রেস অর্ডার — TinySparks*\n`;
+      let msg = `👶 *নতুন বেবি ড্রেস অর্ডার — Baby's Outfits*\n`;
       msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
       msg += `👤 *গ্রাহকের নাম:* ${name}\n`;
       msg += `📞 *মোবাইল:* ${phone}\n`;
@@ -1241,6 +1263,22 @@
         preview.src = val;
         preview.classList.remove("hidden");
         document.getElementById("productFilePlaceholder").classList.add("hidden");
+      }
+    }
+
+    // LOGO UPLOAD HANDLER
+    async function handleLogoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        const logoBase64 = await compressImageFile(file, 250, 0.85);
+        document.getElementById("brandLogoImg").src = logoBase64;
+        const prev = document.getElementById("settingsLogoPreview");
+        if (prev) prev.src = logoBase64;
+        window.storeConfig.logoImg = logoBase64;
+        alert("✅ লোগো আপডেট হয়েছে! স্থায়ীভাবে সেভ করতে নিচে 'সেটিংস সংরক্ষণ করুন' বাটনে চাপ দিন।");
+      } catch (err) {
+        alert("লোগো ছবি প্রসেস করতে ব্যর্থ!");
       }
     }
 
